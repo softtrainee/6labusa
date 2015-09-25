@@ -13,6 +13,7 @@
 		AE8127B21BB53BCD008355BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B01BB53BCD008355BA /* Main.storyboard */; };
 		AE8127B41BB53BCD008355BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B31BB53BCD008355BA /* Assets.xcassets */; };
 		AE8127B71BB53BCD008355BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B51BB53BCD008355BA /* LaunchScreen.storyboard */; };
+		AE8127C21BB53F5C008355BA /* login.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127C11BB53F5C008355BA /* login.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		AE8127B31BB53BCD008355BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8127B61BB53BCD008355BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE8127B81BB53BCD008355BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8127C01BB53F5C008355BA /* login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = login.h; sourceTree = "<group>"; };
+		AE8127C11BB53F5C008355BA /* login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = login.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		AE8127BF1BB53EDB008355BA /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				AE8127C01BB53F5C008355BA /* login.h */,
+				AE8127C11BB53F5C008355BA /* login.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */,
 				AE8127AC1BB53BCD008355BA /* AppDelegate.m in Sources */,
 				AE8127A91BB53BCD008355BA /* main.m in Sources */,
+				AE8127C21BB53F5C008355BA /* login.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
