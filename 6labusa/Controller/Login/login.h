@@ -8,5 +8,8 @@
 // Login Authentication
 
 -(IBAction)AuthenticationClick:(id)sender;
+-(void)forgetPwd;
+-(void)Signup;
+
 
 @end
