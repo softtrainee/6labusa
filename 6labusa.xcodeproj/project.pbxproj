@@ -28,6 +28,8 @@
 		AE1F36381BB92C9400B0EE2F /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36211BB92C9400B0EE2F /* OATokenManager.m */; settings = {ASSET_TAGS = (); }; };
 		AE1F36391BB92C9400B0EE2F /* README in Resources */ = {isa = PBXBuildFile; fileRef = AE1F36231BB92C9400B0EE2F /* README */; settings = {ASSET_TAGS = (); }; };
 		AE1F363A1BB92C9400B0EE2F /* TwitterOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36251BB92C9400B0EE2F /* TwitterOAuthViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AE8127A91BB53BCD008355BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127A81BB53BCD008355BA /* main.m */; };
 		AE8127AC1BB53BCD008355BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AB1BB53BCD008355BA /* AppDelegate.m */; };
 		AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AE1BB53BCD008355BA /* ViewController.m */; };
@@ -81,6 +83,8 @@
 		AE1F36231BB92C9400B0EE2F /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		AE1F36241BB92C9400B0EE2F /* TwitterOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterOAuthViewController.h; sourceTree = "<group>"; };
 		AE1F36251BB92C9400B0EE2F /* TwitterOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterOAuthViewController.m; sourceTree = "<group>"; };
+		AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AE8127A41BB53BCD008355BA /* 6labusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 6labusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8127A81BB53BCD008355BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE8127AA1BB53BCD008355BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */,
+				AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +187,15 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		AE1F363E1BB9332E00B0EE2F /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */,
+				AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		AE81279B1BB53BCD008355BA = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +215,7 @@
 		AE8127A61BB53BCD008355BA /* 6labusa */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F363E1BB9332E00B0EE2F /* Framework */,
 				AE8127BE1BB53EDB008355BA /* Controller */,
 				AE8127AA1BB53BCD008355BA /* AppDelegate.h */,
 				AE8127AB1BB53BCD008355BA /* AppDelegate.m */,
@@ -407,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -455,6 +471,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/6labusa",
+					"$(PROJECT_DIR)/6labusa/Framework",
+				);
 				INFOPLIST_FILE = 6labusa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicole.;
@@ -466,6 +487,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/6labusa",
+					"$(PROJECT_DIR)/6labusa/Framework",
+				);
 				INFOPLIST_FILE = 6labusa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicole.;

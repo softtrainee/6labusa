@@ -11,5 +11,6 @@
 -(void)forgetPwd;
 -(void)Signup;
 -(void)TwitterAccess;
+-(void)FaceBookAccess;
 
 @end

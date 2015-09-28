@@ -4,8 +4,14 @@
 #import "ConstantIdentifier.h"
 #import <QuartzCore/QuartzCore.h>
 
-
+// Twitter
 #import "TwitterOAuthViewController.h"
+
+
+// Facebook
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 @interface login (){
     
@@ -53,7 +59,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     
+    //
     
     [self LoginScreen];
     
@@ -293,6 +301,10 @@
             
         case 2:
             
+            // facebook Authentication here and get response
+            
+            [self FaceBookAccess];
+            
             break;
             
         case 3:
@@ -324,6 +336,37 @@
     
 
 }
+
+// Once the button is clicked, show the login dialog
+-(void)FaceBookAccess
+{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    
+    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if (error) {
+            NSLog(@"Process error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancelled");
+        } else {
+            NSLog(@"Logged in");
+            
+            
+            
+        }
+    }];
+    
+    //    [login logInWithReadPermissions: @[@"public_profile"]
+    //     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    //         if (error) {
+    //             NSLog(@"Process error");
+    //         } else if (result.isCancelled) {
+    //             NSLog(@"Cancelled");
+    //         } else {
+    //             NSLog(@"Logged in");
+    //         }
+    //     }];
+}
+
 
 -(void)forgetPwd{
     
