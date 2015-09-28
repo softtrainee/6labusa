@@ -2,6 +2,7 @@
 
 #import "AppDelegate.h"
 #import "login.h"
+#import "sharedobject.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
@@ -23,14 +24,76 @@
     self.window.rootViewController=self.navcontroller;
     [self.window makeKeyAndVisible];
     
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [[FBSDKApplicationDelegate sharedInstance] application:application  openURL:url sourceApplication:sourceApplication  annotation:annotation
             ];
 }
+
+
+
+
+
+-(void)startReachability{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    self.hostReachability= [Reachability reachabilityWithHostName:@"www.apple.com"];
+    NetworkStatus internetStatus=[self.hostReachability currentReachabilityStatus];
+    sharedobject *sh=[sharedobject sharedmanager];
+    
+    switch (internetStatus) {
+            
+        case NotReachable:
+            sh.networkFlag=FALSE;
+            break;
+            
+        case ReachableViaWiFi:
+            sh.networkFlag=TRUE;
+            
+        case ReachableViaWWAN:
+            sh.networkFlag=TRUE;
+            
+        default:
+            break;
+    }
+    
+    self.internetReachability=[Reachability reachabilityForInternetConnection];
+    [self.internetReachability startNotifier];
+    
+    
+}
+
+
+-(void)reachabilityChanged:(NSNotification*)note{
+    
+    sharedobject *sh=[sharedobject sharedmanager];
+    Reachability *reachability=[note object];
+    NSParameterAssert([reachability isKindOfClass:[Reachability class]]);
+    NetworkStatus internetStatus =[reachability currentReachabilityStatus];
+    
+    switch (internetStatus) {
+            
+        case NotReachable:
+            sh.networkFlag=FALSE;
+            break;
+        case ReachableViaWiFi:
+            sh.networkFlag=TRUE;
+            break;
+        case ReachableViaWWAN:
+            sh.networkFlag=TRUE;
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

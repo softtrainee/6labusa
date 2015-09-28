@@ -1,6 +1,8 @@
 
 
 #import "login.h"
+#import "forgetpassword.h"
+#import "registration.h"
 #import "ConstantIdentifier.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -369,12 +371,15 @@
 
 
 -(void)forgetPwd{
-    
+    forgetpassword *controller = [[forgetpassword alloc]init];
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
 }
 
 
 -(void)Signup{
-    
+    registration *controller = [[registration alloc]init];
+    [self.navigationController pushViewController:controller animated:YES];
+    //[self.navigationController presentViewController:controller animated:YES completion:nil];
 }
 
 

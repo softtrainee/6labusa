@@ -30,6 +30,12 @@
 		AE1F363A1BB92C9400B0EE2F /* TwitterOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36251BB92C9400B0EE2F /* TwitterOAuthViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		AE1F36481BB94F2B00B0EE2F /* forgetpassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36471BB94F2B00B0EE2F /* forgetpassword.m */; settings = {ASSET_TAGS = (); }; };
+		AE1F364C1BB9548800B0EE2F /* registration.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F364B1BB9548800B0EE2F /* registration.m */; settings = {ASSET_TAGS = (); }; };
+		AE1F365C1BB9645400B0EE2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1F36591BB9645400B0EE2F /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		AE1F365D1BB9645400B0EE2F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1F365A1BB9645400B0EE2F /* Default.png */; settings = {ASSET_TAGS = (); }; };
+		AE1F365E1BB9645400B0EE2F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1F365B1BB9645400B0EE2F /* Default@2x.png */; settings = {ASSET_TAGS = (); }; };
+		AE1F36631BB966CF00B0EE2F /* sharedobject.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36621BB966CF00B0EE2F /* sharedobject.m */; settings = {ASSET_TAGS = (); }; };
 		AE8127A91BB53BCD008355BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127A81BB53BCD008355BA /* main.m */; };
 		AE8127AC1BB53BCD008355BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AB1BB53BCD008355BA /* AppDelegate.m */; };
 		AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AE1BB53BCD008355BA /* ViewController.m */; };
@@ -38,9 +44,12 @@
 		AE8127B71BB53BCD008355BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B51BB53BCD008355BA /* LaunchScreen.storyboard */; };
 		AE8127C21BB53F5C008355BA /* login.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127C11BB53F5C008355BA /* login.m */; settings = {ASSET_TAGS = (); }; };
 		AE8127C61BB54920008355BA /* ConstantIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127C51BB54920008355BA /* ConstantIdentifier.m */; settings = {ASSET_TAGS = (); }; };
+		CAE049A8B52C839376972AEA /* libPods-6labusa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A80C2A0A6D0C6AFDC1B9CF99 /* libPods-6labusa.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75C4FB7CBDAE97AF79E61EDC /* Pods-6labusa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6labusa.release.xcconfig"; path = "Pods/Target Support Files/Pods-6labusa/Pods-6labusa.release.xcconfig"; sourceTree = "<group>"; };
+		A80C2A0A6D0C6AFDC1B9CF99 /* libPods-6labusa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-6labusa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1F35FB1BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		AE1F35FC1BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
 		AE1F35FD1BB92C9400B0EE2F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -85,6 +94,15 @@
 		AE1F36251BB92C9400B0EE2F /* TwitterOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterOAuthViewController.m; sourceTree = "<group>"; };
 		AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		AE1F36461BB94F2B00B0EE2F /* forgetpassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetpassword.h; sourceTree = "<group>"; };
+		AE1F36471BB94F2B00B0EE2F /* forgetpassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetpassword.m; sourceTree = "<group>"; };
+		AE1F364A1BB9548800B0EE2F /* registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registration.h; sourceTree = "<group>"; };
+		AE1F364B1BB9548800B0EE2F /* registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registration.m; sourceTree = "<group>"; };
+		AE1F36591BB9645400B0EE2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AE1F365A1BB9645400B0EE2F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AE1F365B1BB9645400B0EE2F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AE1F36611BB966CF00B0EE2F /* sharedobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sharedobject.h; sourceTree = "<group>"; };
+		AE1F36621BB966CF00B0EE2F /* sharedobject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sharedobject.m; sourceTree = "<group>"; };
 		AE8127A41BB53BCD008355BA /* 6labusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 6labusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8127A81BB53BCD008355BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE8127AA1BB53BCD008355BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +117,7 @@
 		AE8127C11BB53F5C008355BA /* login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = login.m; sourceTree = "<group>"; };
 		AE8127C41BB54920008355BA /* ConstantIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantIdentifier.h; sourceTree = "<group>"; };
 		AE8127C51BB54920008355BA /* ConstantIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantIdentifier.m; sourceTree = "<group>"; };
+		ED12BBF4C53B1A63B09AA0A5 /* Pods-6labusa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6labusa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-6labusa/Pods-6labusa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +127,7 @@
 			files = (
 				AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */,
 				AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */,
+				CAE049A8B52C839376972AEA /* libPods-6labusa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +216,48 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
+		AE1F36451BB94F1500B0EE2F /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				AE1F36461BB94F2B00B0EE2F /* forgetpassword.h */,
+				AE1F36471BB94F2B00B0EE2F /* forgetpassword.m */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		AE1F36491BB9547900B0EE2F /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				AE1F364A1BB9548800B0EE2F /* registration.h */,
+				AE1F364B1BB9548800B0EE2F /* registration.m */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		AE1F365F1BB966B900B0EE2F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AE1F36601BB966B900B0EE2F /* SharedObject */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AE1F36601BB966B900B0EE2F /* SharedObject */ = {
+			isa = PBXGroup;
+			children = (
+				AE1F36611BB966CF00B0EE2F /* sharedobject.h */,
+				AE1F36621BB966CF00B0EE2F /* sharedobject.m */,
+			);
+			path = SharedObject;
+			sourceTree = "<group>";
+		};
 		AE81279B1BB53BCD008355BA = {
 			isa = PBXGroup;
 			children = (
 				AE8127A61BB53BCD008355BA /* 6labusa */,
 				AE8127A51BB53BCD008355BA /* Products */,
+				FFF9EF1515CD031B3D5FB2F7 /* Pods */,
+				B56614CC9FD574A350DDB046 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,12 +272,16 @@
 		AE8127A61BB53BCD008355BA /* 6labusa */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F365F1BB966B900B0EE2F /* Utilities */,
 				AE1F363E1BB9332E00B0EE2F /* Framework */,
 				AE8127BE1BB53EDB008355BA /* Controller */,
 				AE8127AA1BB53BCD008355BA /* AppDelegate.h */,
 				AE8127AB1BB53BCD008355BA /* AppDelegate.m */,
 				AE8127AD1BB53BCD008355BA /* ViewController.h */,
 				AE8127AE1BB53BCD008355BA /* ViewController.m */,
+				AE1F36591BB9645400B0EE2F /* Default-568h@2x.png */,
+				AE1F365A1BB9645400B0EE2F /* Default.png */,
+				AE1F365B1BB9645400B0EE2F /* Default@2x.png */,
 				AE8127B01BB53BCD008355BA /* Main.storyboard */,
 				AE8127B31BB53BCD008355BA /* Assets.xcassets */,
 				AE8127B51BB53BCD008355BA /* LaunchScreen.storyboard */,
@@ -241,6 +302,8 @@
 		AE8127BE1BB53EDB008355BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F36491BB9547900B0EE2F /* Registration */,
+				AE1F36451BB94F1500B0EE2F /* ForgetPassword */,
 				AE1F35F81BB92C9400B0EE2F /* TwitterOAuthViewController */,
 				AE8127C31BB54920008355BA /* Constant */,
 				AE8127BF1BB53EDB008355BA /* Login */,
@@ -266,6 +329,23 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		B56614CC9FD574A350DDB046 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A80C2A0A6D0C6AFDC1B9CF99 /* libPods-6labusa.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFF9EF1515CD031B3D5FB2F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED12BBF4C53B1A63B09AA0A5 /* Pods-6labusa.debug.xcconfig */,
+				75C4FB7CBDAE97AF79E61EDC /* Pods-6labusa.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,9 +353,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE8127BB1BB53BCD008355BA /* Build configuration list for PBXNativeTarget "6labusa" */;
 			buildPhases = (
+				62B013E5D846AEA834CF34C3 /* Check Pods Manifest.lock */,
 				AE8127A01BB53BCD008355BA /* Sources */,
 				AE8127A11BB53BCD008355BA /* Frameworks */,
 				AE8127A21BB53BCD008355BA /* Resources */,
+				89269BB646A46EC4A530B0CA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,15 +405,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1F365E1BB9645400B0EE2F /* Default@2x.png in Resources */,
 				AE1F36391BB92C9400B0EE2F /* README in Resources */,
 				AE1F36361BB92C9400B0EE2F /* OATestServer.rb in Resources */,
 				AE8127B71BB53BCD008355BA /* LaunchScreen.storyboard in Resources */,
 				AE8127B41BB53BCD008355BA /* Assets.xcassets in Resources */,
+				AE1F365D1BB9645400B0EE2F /* Default.png in Resources */,
 				AE8127B21BB53BCD008355BA /* Main.storyboard in Resources */,
+				AE1F365C1BB9645400B0EE2F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62B013E5D846AEA834CF34C3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		89269BB646A46EC4A530B0CA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-6labusa/Pods-6labusa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE8127A01BB53BCD008355BA /* Sources */ = {
@@ -350,9 +468,11 @@
 				AE1F36311BB92C9400B0EE2F /* OAMutableURLRequest.m in Sources */,
 				AE8127A91BB53BCD008355BA /* main.m in Sources */,
 				AE1F36341BB92C9400B0EE2F /* OARequestParameter.m in Sources */,
+				AE1F364C1BB9548800B0EE2F /* registration.m in Sources */,
 				AE1F362B1BB92C9400B0EE2F /* sha1.c in Sources */,
 				AE1F36371BB92C9400B0EE2F /* OAToken.m in Sources */,
 				AE1F36261BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m in Sources */,
+				AE1F36631BB966CF00B0EE2F /* sharedobject.m in Sources */,
 				AE1F36351BB92C9400B0EE2F /* OAServiceTicket.m in Sources */,
 				AE1F362F1BB92C9400B0EE2F /* OADataFetcher.m in Sources */,
 				AE1F36331BB92C9400B0EE2F /* OAProblem.m in Sources */,
@@ -360,6 +480,7 @@
 				AE1F36301BB92C9400B0EE2F /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				AE1F36271BB92C9400B0EE2F /* NSString+URLEncoding.m in Sources */,
 				AE1F36291BB92C9400B0EE2F /* Base64Transcoder.c in Sources */,
+				AE1F36481BB94F2B00B0EE2F /* forgetpassword.m in Sources */,
 				AE1F362C1BB92C9400B0EE2F /* OAAttachment.m in Sources */,
 				AE8127C21BB53F5C008355BA /* login.m in Sources */,
 			);
@@ -469,6 +590,7 @@
 		};
 		AE8127BC1BB53BCD008355BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED12BBF4C53B1A63B09AA0A5 /* Pods-6labusa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -485,6 +607,7 @@
 		};
 		AE8127BD1BB53BCD008355BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C4FB7CBDAE97AF79E61EDC /* Pods-6labusa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (

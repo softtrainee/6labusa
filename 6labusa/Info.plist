@@ -35,8 +35,7 @@
 	<string>925974924135029</string>
 	<key>FacebookDisplayName</key>
 	<string>6labusa</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
