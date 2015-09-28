@@ -1,0 +1,208 @@
+
+
+#import "TwitterOAuthViewController.h"
+#import "OAuthConsumer.h"
+
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+NSString *client_id = @"lDVewcDXjlNAFgfKGdZcFnr0l";
+NSString *secret = @"dzZaIhX4ePR3Baq5KZ6Zz3N1LsHQEeNPIE0svNWrMAaDCmb1x3";
+NSString *callback = @"http://6labusa.projectupdate.website/callback";
+
+@interface TwitterOAuthViewController ()<UIWebViewDelegate>{
+    OAConsumer * _consumer;
+    OAToken * _requestToken;
+    OAToken * _accessToken;
+    void(^_completion)(BOOL, id);
+}
+
+@property(nonatomic, strong) UIWebView * webView;
+@property(nonatomic, strong) NSString * isLogin;
+
+@end
+
+@implementation TwitterOAuthViewController
+
+- (id)initWithCompletion:(void (^)(BOOL, id))completion{
+    self = [super init];
+    if (self) {
+        _completion = completion;
+        [self setTitle:@"Twitter-OAuth"];
+        [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(done)]];
+    }
+    return self;
+}
+
+- (void)done{
+    _completion(NO,nil);
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [label setText:@"Completed!"];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setCenter:self.view.center];
+    [self.view addSubview:label];
+    if (!_webView) {
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
+        [_webView setDelegate:self];
+        [self.view addSubview: _webView];
+    }
+    _consumer = [[OAConsumer alloc] initWithKey:client_id secret:secret];
+    NSURL* requestTokenUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
+    OAMutableURLRequest* requestTokenRequest = [[OAMutableURLRequest alloc] initWithURL:requestTokenUrl
+                                                                               consumer:_consumer
+                                                                                  token:nil
+                                                                                  realm:nil
+                                                                      signatureProvider:nil];
+    OARequestParameter* callbackParam = [[OARequestParameter alloc] initWithName:@"oauth_callback" value:callback];
+    [requestTokenRequest setHTTPMethod:@"POST"];
+    [requestTokenRequest setParameters:[NSArray arrayWithObject:callbackParam]];
+    OADataFetcher* dataFetcher = [[OADataFetcher alloc] init];
+    [dataFetcher fetchDataWithRequest:requestTokenRequest
+                             delegate:self
+                    didFinishSelector:@selector(didReceiveRequestToken:data:)
+                      didFailSelector:@selector(didFailOAuth:error:)];
+    // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveRequestToken:(OAServiceTicket*)ticket data:(NSData*)data {
+    NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    _requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
+    
+    NSURL* authorizeUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/authorize"];
+    OAMutableURLRequest* authorizeRequest = [[OAMutableURLRequest alloc] initWithURL:authorizeUrl
+                                                                            consumer:nil
+                                                                               token:nil
+                                                                               realm:nil
+                                                                   signatureProvider:nil];
+    NSString* oauthToken = _requestToken.key;
+    OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:@"oauth_token" value:oauthToken];
+    [authorizeRequest setParameters:[NSArray arrayWithObject:oauthTokenParam]];
+    
+    [_webView loadRequest:authorizeRequest];
+}
+
+#pragma mark UIWebViewDelegate
+
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    //  [indicator startAnimating];
+    NSString *temp = [NSString stringWithFormat:@"%@",request];
+    //  BOOL result = [[temp lowercaseString] hasPrefix:@"http://codegerms.com/callback"];
+    // if (result) {
+    NSRange textRange = [[temp lowercaseString] rangeOfString:[@"http://6labusa.projectupdate.website/callback" lowercaseString]];
+    
+    if(textRange.location != NSNotFound){
+        
+        
+        // Extract oauth_verifier from URL query
+        NSString* verifier = nil;
+        NSArray* urlParams = [[[request URL] query] componentsSeparatedByString:@"&"];
+        for (NSString* param in urlParams) {
+            NSArray* keyValue = [param componentsSeparatedByString:@"="];
+            NSString* key = [keyValue objectAtIndex:0];
+            if ([key isEqualToString:@"oauth_verifier"]) {
+                verifier = [keyValue objectAtIndex:1];
+                break;
+            }
+        }
+        
+        if (verifier) {
+            NSURL* accessTokenUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/access_token"];
+            OAMutableURLRequest* accessTokenRequest = [[OAMutableURLRequest alloc] initWithURL:accessTokenUrl consumer:_consumer token:_requestToken realm:nil signatureProvider:nil];
+            OARequestParameter* verifierParam = [[OARequestParameter alloc] initWithName:@"oauth_verifier" value:verifier];
+            [accessTokenRequest setHTTPMethod:@"POST"];
+            [accessTokenRequest setParameters:[NSArray arrayWithObject:verifierParam]];
+            OADataFetcher* dataFetcher = [[OADataFetcher alloc] init];
+            [dataFetcher fetchDataWithRequest:accessTokenRequest
+                                     delegate:self
+                            didFinishSelector:@selector(didReceiveAccessToken:data:)
+                              didFailSelector:@selector(didFailOAuth:error:)];
+        } else {
+            // ERROR!
+        }
+        
+        [webView removeFromSuperview];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)webView:(UIWebView*)webView didFailLoadWithError:(NSError*)error {
+    // ERROR!
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    // [indicator stopAnimating];
+}
+
+- (void)didReceiveAccessToken:(OAServiceTicket*)ticket data:(NSData*)data {
+    NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    _accessToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
+//    WebServiceSocket *connection = [[WebServiceSocket alloc] init];
+//    connection.delegate = self;
+//    NSString *pdata = [NSString stringWithFormat:@"type=2&token=%@&secret=%@&login=%@", _accessToken.key, _accessToken.secret, self.isLogin];
+//    [connection fetch:1 withPostdata:pdata withGetData:@"" isSilent:NO];
+    
+    
+    
+    if (_accessToken) {
+        NSURL* userdatarequestu = [NSURL URLWithString:@"https://api.twitter.com/1.1/account/verify_credentials.json"];
+        OAMutableURLRequest* requestTokenRequest = [[OAMutableURLRequest alloc] initWithURL:userdatarequestu
+                                                                                   consumer:_consumer
+                                                                                      token:_accessToken
+                                                                                      realm:nil
+                                                                          signatureProvider:nil];
+        
+        [requestTokenRequest setHTTPMethod:@"GET"];
+        OADataFetcher* dataFetcher = [[OADataFetcher alloc] init];
+        [dataFetcher fetchDataWithRequest:requestTokenRequest
+                                 delegate:self
+                        didFinishSelector:@selector(didReceiveuserdata:data:)
+                          didFailSelector:@selector(didFailOdatah:error:)];    } else {
+            // ERROR!
+        }
+}
+
+- (void)didReceiveuserdata:(OAServiceTicket*)ticket data:(NSData*)data {
+    NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[httpBody dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil]];
+    if (_accessToken.key) {
+        [dic setValue:_accessToken.key forKey:@"token"];
+    }
+    if (_accessToken.secret) {
+        [dic setValue:_accessToken.secret forKey:@"secret"];
+    }
+    _completion(YES,dic);
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)didFailOAuth:(OAServiceTicket*)ticket error:(NSError*)error {
+    // ERROR!
+}
+
+- (void)didFailOdatah:(OAServiceTicket*)ticket error:(NSError*)error {
+    // ERROR!
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
