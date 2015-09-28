@@ -16,6 +16,12 @@
     
     UIButton *closeBtn;
     
+    // Scroll View which contain user info
+    
+    UIScrollView *scrollView;
+    
+    
+    
     
 }
 
@@ -93,11 +99,32 @@
     
     
     
+    
+    
+    // Scroll view which contain login container
+    
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10.0, 10.0,centerView.frame.size.width-20, 3*kSCREEN_HEIGHT)];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    [scrollView setBackgroundColor:[UIColor grayColor]];
+    
+    
+    
+    // scroller content set here
+    scrollView.contentSize = CGSizeMake(centerView.frame.size.width-20, 2*kSCREEN_HEIGHT);
+    
+    
+    
+    
+    
+    
     // header's add in maincontroller
     
     [mainContainerView addSubview:headerView];
     [mainContainerView addSubview:headerline];
     [mainContainerView addSubview:centerView];
+    [centerView addSubview:scrollView];
     [self.view addSubview:mainContainerView];
 }
 

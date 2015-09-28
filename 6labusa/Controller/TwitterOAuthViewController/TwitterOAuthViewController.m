@@ -3,6 +3,9 @@
 #import "TwitterOAuthViewController.h"
 #import "OAuthConsumer.h"
 
+#import <SVProgressHUD.h>
+
+
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
@@ -29,6 +32,7 @@ NSString *callback = @"http://6labusa.projectupdate.website/callback";
     if (self) {
         _completion = completion;
         [self setTitle:@"Twitter-OAuth"];
+        [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:139.0/255.0 green:8.0/255.0 blue:8.0/255.0 alpha:1.0]];
         [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(done)]];
     }
     return self;
@@ -41,8 +45,10 @@ NSString *callback = @"http://6labusa.projectupdate.website/callback";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
     [label setText:@"Completed!"];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setCenter:self.view.center];
@@ -53,7 +59,9 @@ NSString *callback = @"http://6labusa.projectupdate.website/callback";
         [self.view addSubview: _webView];
     }
     _consumer = [[OAConsumer alloc] initWithKey:client_id secret:secret];
+    
     NSURL* requestTokenUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
+    [SVProgressHUD showWithStatus:@"Please Wait.." maskType:SVProgressHUDMaskTypeBlack];
     OAMutableURLRequest* requestTokenRequest = [[OAMutableURLRequest alloc] initWithURL:requestTokenUrl
                                                                                consumer:_consumer
                                                                                   token:nil
@@ -71,6 +79,9 @@ NSString *callback = @"http://6labusa.projectupdate.website/callback";
 }
 
 - (void)didReceiveRequestToken:(OAServiceTicket*)ticket data:(NSData*)data {
+    
+    [SVProgressHUD dismiss];
+    
     NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     _requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
     
@@ -183,7 +194,10 @@ NSString *callback = @"http://6labusa.projectupdate.website/callback";
 }
 
 - (void)didFailOAuth:(OAServiceTicket*)ticket error:(NSError*)error {
+    
     // ERROR!
+    
+    [SVProgressHUD dismiss];
 }
 
 - (void)didFailOdatah:(OAServiceTicket*)ticket error:(NSError*)error {
