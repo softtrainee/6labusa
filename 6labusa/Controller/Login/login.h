@@ -10,6 +10,6 @@
 -(IBAction)AuthenticationClick:(id)sender;
 -(void)forgetPwd;
 -(void)Signup;
-
+-(void)TwitterAccess;
 
 @end

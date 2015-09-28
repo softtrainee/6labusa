@@ -4,6 +4,9 @@
 #import "ConstantIdentifier.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+#import "TwitterOAuthViewController.h"
+
 @interface login (){
     
     // view's
@@ -293,6 +296,9 @@
             break;
             
         case 3:
+            // Twitter Authentication here and get response
+            
+            [self TwitterAccess];
             
             break;
             
@@ -303,6 +309,20 @@
     }
     
     
+}
+
+-(void)TwitterAccess{
+    TwitterOAuthViewController * twitterOAuthVC = [[TwitterOAuthViewController alloc] initWithCompletion:^(BOOL succeeded, id object) {
+        if (succeeded && object) {
+           // [_textView setText:[NSString stringWithFormat:@"%@",object]];
+            DLog(@"Twitter Response :- %@",object);
+            
+        }
+    }];
+    UINavigationController * navC = [[UINavigationController alloc] initWithRootViewController:twitterOAuthVC];
+    [self presentViewController:navC animated:YES completion:NULL];
+    
+
 }
 
 -(void)forgetPwd{
