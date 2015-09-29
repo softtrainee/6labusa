@@ -5,6 +5,7 @@
 #import "registration.h"
 #import "ConstantIdentifier.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
 // Twitter
 #import "TwitterOAuthViewController.h"
@@ -299,6 +300,24 @@
             
         case 1:
             
+            
+            if ([userNameTxt.text isEqualToString:@""]) {
+                
+            }
+            else if ([pwdTxt.text isEqualToString:@""]){
+                
+            }
+            else{
+                if ([ConstantIdentifier checkNetworkConnection]) {
+                      [self LoginAccess];
+                }
+                else{
+                    [ConstantIdentifier getAlert:InternetMessage view:self];
+                }
+            }
+            
+          [self LoginAccess];
+           
             break;
             
         case 2:
@@ -322,6 +341,13 @@
             break;
     }
     
+    
+}
+
+-(void)LoginAccess{
+    
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate  Loggedin];
     
 }
 

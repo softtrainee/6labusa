@@ -51,10 +51,10 @@
 
 
 + (void)getAlert:(NSString*)message view:(id)view;
-/*
+
 + (void)setViewMovedUp:(BOOL)movedUp view:(UIView*)view;
 + (BOOL)checkNetworkConnection;
 + (void)setViewMovedUpRegistration:(BOOL)movedUp view:(UIView*)view count:(int)count;
- */
+ 
 
 @end

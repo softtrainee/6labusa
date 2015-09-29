@@ -18,7 +18,9 @@
 @property (nonatomic, retain) Reachability *internetReachability;
 @property (nonatomic, retain) Reachability *wifiReachability;
 
-
+- (void)DefaultInitScreen;
+- (void)Loggedin;
+- (void)Logout;
 
 @end
 

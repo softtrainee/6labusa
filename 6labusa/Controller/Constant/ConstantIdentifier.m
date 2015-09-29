@@ -2,7 +2,7 @@
 
 #import "ConstantIdentifier.h"
 #import <UIKit/UIKit.h>
-//#import "sharedobject.h"
+#import "sharedobject.h"
 //#import "Reachability.h"
 #import "AppDelegate.h"
 
@@ -22,7 +22,7 @@
     
 }
 
-/*
+
 
 +(void)setViewMovedUp:(BOOL)movedUp view:(UIView*)view{
     
@@ -79,7 +79,7 @@
     }
     return YES;
 }
-*/
+
 
 
 @end

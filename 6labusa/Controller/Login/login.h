@@ -11,6 +11,7 @@
 -(IBAction)AuthenticationClick:(id)sender;
 -(void)forgetPwd;
 -(void)Signup;
+-(void)LoginAccess;
 -(void)TwitterAccess;
 -(void)FaceBookAccess;
 

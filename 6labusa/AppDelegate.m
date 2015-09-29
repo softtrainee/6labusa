@@ -6,6 +6,14 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
+// slider menu hedaer file
+
+#import <MFSideMenuContainerViewController.h>
+#import "home.h"
+#import "leftmenu.h"
+
+
+
 @interface AppDelegate ()
 
 @end
@@ -18,11 +26,11 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.controller = [[login alloc]init];
-    self.navcontroller = [[UINavigationController alloc]initWithRootViewController:self.controller];
-    self.navcontroller.navigationBarHidden=YES;
-    self.window.rootViewController=self.navcontroller;
+    [self DefaultInitScreen];
     [self.window makeKeyAndVisible];
+    
+    
+    
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -93,6 +101,56 @@
 }
 
 
+-(void)DefaultInitScreen{
+    self.controller = [[login alloc]init];
+    self.navcontroller = [[UINavigationController alloc]initWithRootViewController:self.controller];
+    self.navcontroller.navigationBarHidden=YES;
+    self.window.rootViewController=self.navcontroller;
+}
+
+- (void)Loggedin{
+    
+    
+    home *rootController = [[home alloc]init];
+    UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+    //self.window.rootViewController = navigation;
+    
+    MFSideMenuContainerViewController *container = [[MFSideMenuContainerViewController alloc]init];
+    //UINavigationController *navigationController = [[UINavigationController alloc]init];
+    
+    leftmenu *leftSideMenuViewController = [[leftmenu alloc]init];
+    [container setLeftMenuViewController:leftSideMenuViewController];
+    [container setCenterViewController:navigation];
+    self.window.rootViewController = container;
+    
+    
+    
+    /*
+    LHHomeViewController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeview"];
+    
+    UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+    self.window.rootViewController = navigation;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
+    
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+    
+    UIViewController *leftSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"leftSideMenuViewController"];
+    
+    [container setLeftMenuViewController:leftSideMenuViewController];
+    [container setCenterViewController:navigationController];
+    self.window.rootViewController = container;
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    */
+}
+
+
+- (void)Logout{
+    [self DefaultInitScreen];
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
