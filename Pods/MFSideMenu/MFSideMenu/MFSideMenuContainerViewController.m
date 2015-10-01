@@ -157,7 +157,8 @@ typedef enum {
 
 #pragma mark -
 #pragma mark - UIViewController Rotation
-
+/*
+ 
 -(NSUInteger)supportedInterfaceOrientations {
     if (self.centerViewController) {
         if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
@@ -199,7 +200,7 @@ typedef enum {
     
     [self.shadow shadowedViewDidRotate];
 }
-
+*/
 
 #pragma mark -
 #pragma mark - UIViewController Containment
@@ -547,7 +548,7 @@ typedef enum {
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:gestureRecognizer.view];
-        BOOL isHorizontalPanning = fabsf(velocity.x) > fabsf(velocity.y);
+        BOOL isHorizontalPanning = fabs(velocity.x) > fabs(velocity.y);
         return isHorizontalPanning;
     }
     return YES;

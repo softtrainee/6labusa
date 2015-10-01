@@ -9,6 +9,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navcontroller;
 @property (strong, nonatomic) login *controller;
+@property (strong, nonatomic) UIViewController *viewController;
 
 
 // Reachability

@@ -16,6 +16,13 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
+#import <AFNetworking.h>
+
+
+
+
+
+
 @interface login (){
     
     // view's
@@ -153,9 +160,8 @@
     
     
     userNameTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, kSCREEN_HEADER+10.0, scrollView.frame.size.width-40.0, kSCREEN_HEADER)];
-    
     [userNameTxt setBorderStyle:UITextBorderStyleNone];
-    [userNameTxt setBackground:[UIImage imageNamed:@"user"]];
+    [userNameTxt setBackground:[[UIImage imageNamed:@"user"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]];
     //[userNameTxt setPlaceholder:@"Enter User Name"];
     userNameTxt.font=[UIFont fontWithName:@"HelveticaNeue" size:17.0f];
     userNameTxt.returnKeyType=UIReturnKeyDefault;
@@ -178,10 +184,8 @@
     
     
     pwdTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, 3*kSCREEN_HEADER+10.0, scrollView.frame.size.width-40.0, kSCREEN_HEADER)];
-    
     [pwdTxt setBorderStyle:UITextBorderStyleNone];
     [pwdTxt setBackground:[UIImage imageNamed:@"pwd"]];
-    
     pwdTxt.secureTextEntry=true;
     //[pwdTxt setPlaceholder:@"Enter Password"];
     pwdTxt.font=[UIFont fontWithName:@"HelveticaNeue" size:17.0f];
@@ -316,7 +320,7 @@
                 }
             }
             
-          [self LoginAccess];
+         
            
             break;
             
@@ -346,12 +350,37 @@
 
 -(void)LoginAccess{
     
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = @{@"Email": @"inform2satishtiwari@gmail.com", @"Password": @"123"};
+    NSString *strURL=BaseURL;
+    
+    
+    [manager POST:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        NSDictionary *dict=responseObject;
+        DLog(@"%@", dict);
+      
+        
+    }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              DLog(@"ERROR: %@", error);
+              
+              
+          }];
+    
+    /*
+    
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate  Loggedin];
-    
+     
+    */
 }
 
 -(void)TwitterAccess{
+    
     TwitterOAuthViewController * twitterOAuthVC = [[TwitterOAuthViewController alloc] initWithCompletion:^(BOOL succeeded, id object) {
         if (succeeded && object) {
            // [_textView setText:[NSString stringWithFormat:@"%@",object]];
@@ -359,6 +388,7 @@
             
         }
     }];
+    
     UINavigationController * navC = [[UINavigationController alloc] initWithRootViewController:twitterOAuthVC];
     [self presentViewController:navC animated:YES completion:NULL];
     
@@ -397,15 +427,19 @@
 
 
 -(void)forgetPwd{
+    
     forgetpassword *controller = [[forgetpassword alloc]init];
     [self.navigationController presentViewController:controller animated:YES completion:nil];
+    
 }
 
 
 -(void)Signup{
+    
     registration *controller = [[registration alloc]init];
     [self.navigationController pushViewController:controller animated:YES];
     //[self.navigationController presentViewController:controller animated:YES completion:nil];
+    
 }
 
 
