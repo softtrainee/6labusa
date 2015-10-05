@@ -2,7 +2,11 @@
 
 #import "AppDelegate.h"
 #import "ConstantIdentifier.h"
-#import "login.h"
+#import "home.h"
+#import "category.h"
+#import "vendor.h"
+#import "mosque.h"
+#import "myaccount.h"
 #import "product.h"
 #import "sharedobject.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -11,7 +15,7 @@
 // slider menu hedaer file
 
 #import <MFSideMenuContainerViewController.h>
-#import "home.h"
+
 #import "leftmenu.h"
 
 // custom tab bar
@@ -32,8 +36,8 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self DefaultInitScreen];
-    //[self TabBarLayout];
+    //[self DefaultInitScreen];
+    [self TabBarLayout];
     [self.window makeKeyAndVisible];
     
     
@@ -109,10 +113,12 @@
 
 
 -(void)DefaultInitScreen{
-    self.controller = [[login alloc]init];
-    self.navcontroller = [[UINavigationController alloc]initWithRootViewController:self.controller];
-    self.navcontroller.navigationBarHidden=YES;
-    self.window.rootViewController=self.navcontroller;
+    
+//    self.controller = [[login alloc]init];
+//    self.navcontroller = [[UINavigationController alloc]initWithRootViewController:self.controller];
+//    self.navcontroller.navigationBarHidden=YES;
+//    self.window.rootViewController=self.navcontroller;
+    
 }
 
 
@@ -136,21 +142,49 @@
 
 - (void)setupViewControllers {
     
+    
+    
+    
+    
+    
+    
     home *firstViewController = [[home alloc] init];
     UIViewController *firstNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:firstViewController];
     
-    product *secondViewController = [[product alloc] init];
-    UIViewController *secondNavigationController = [[UINavigationController alloc]
-                                                    initWithRootViewController:secondViewController];
     
-    login *thirdViewController = [[login alloc] init];
+    category *secondViewController = [[category alloc] init];
+    UIViewController *secondNavigationController = [[UINavigationController alloc]
+                                                   initWithRootViewController:secondViewController];
+    
+    
+    
+    vendor *thirdViewController = [[vendor alloc] init];
     UIViewController *thirdNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:thirdViewController];
     
+    
+    
+    
+    mosque *forthViewController = [[mosque alloc] init];
+    UIViewController *forthNavigationController = [[UINavigationController alloc]
+                                                        initWithRootViewController:forthViewController];
+    
+    
+    
+    
+    
+    myaccount *fifthViewController = [[myaccount alloc] init];
+    UIViewController *fifthNavigationController = [[UINavigationController alloc]
+                                                        initWithRootViewController:fifthViewController];
+    
+    
+    
+    
+    
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
     [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
-                                           thirdNavigationController]];
+                                           thirdNavigationController,forthNavigationController,fifthNavigationController]];
     self.viewController = tabBarController;
     
     [self customizeTabBarForController:tabBarController];
@@ -160,11 +194,21 @@
     
     UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
     UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
-    NSArray *tabBarItemImages = @[@"first", @"second", @"third"];
-    
+    NSArray *tabBarItemImages = @[@"first", @"second", @"v11",@"m11",@"A11"];
+    NSArray *tabBarItemName = @[@"Home",@"Categoary",@"Vendor",@"Mosque",@"Account"];
     NSInteger index = 0;
+    
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        
+        
+       // [[item objectAtIndex:0] setTitle:NSLocalizedString(@"BotonMapas", @"comment")];
+
+        
+        [item setTitle:[NSString stringWithFormat:@"%@",[tabBarItemName objectAtIndex:index]]];
+
+        
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        
         UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
                                                       [tabBarItemImages objectAtIndex:index]]];
         UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
@@ -179,10 +223,8 @@
 - (void)customizeInterface {
     
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    
     UIImage *backgroundImage = nil;
     NSDictionary *textAttributes = nil;
-    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
         
@@ -203,9 +245,9 @@
 #endif
     }
     
-    [navigationBarAppearance setBackgroundImage:backgroundImage
-                                  forBarMetrics:UIBarMetricsDefault];
+    [navigationBarAppearance setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     [navigationBarAppearance setTitleTextAttributes:textAttributes];
+    
 }
 
 

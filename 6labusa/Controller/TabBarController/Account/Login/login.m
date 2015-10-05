@@ -72,6 +72,7 @@
 
     
     //
+     self.navigationController.navigationBarHidden=TRUE;
     
     [self LoginScreen];
     

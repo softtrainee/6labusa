@@ -15,13 +15,21 @@
     // UIbutton
     
     UIButton *closeBtn;
+    UIButton *BtnCountry;
+    UIButton *BtnState;
+    UIButton *BtnRemeberMe;
     
     // Scroll View which contain user info
     
     UIScrollView *scrollView;
     
-    
-    
+    UITextField *txtFname;
+    UITextField *txtLname;
+    UITextField *txtEmail;
+    UITextField *txtPwd;
+    UITextField *txtAddress;
+    UITextField *txtZipCode;
+    UITextField *txtPhone;
     
 }
 
@@ -111,6 +119,10 @@
     
     
     
+    
+    
+    
+    
     // scroller content set here
     scrollView.contentSize = CGSizeMake(centerView.frame.size.width-20, 2*kSCREEN_HEIGHT);
     
@@ -136,14 +148,6 @@
 
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

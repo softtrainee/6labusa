@@ -19,7 +19,8 @@
 
 #define KVersion [[[UIDevice currentDevice] systemVersion] intValue]
 #define kSCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define kSCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define kSCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)-70
+
 
 //  login screen header
 
