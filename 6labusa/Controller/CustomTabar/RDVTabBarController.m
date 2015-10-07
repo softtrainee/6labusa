@@ -141,7 +141,11 @@
         
         for (UIViewController *viewController in viewControllers) {
             RDVTabBarItem *tabBarItem = [[RDVTabBarItem alloc] init];
+            
+            
             [tabBarItem setTitle:viewController.title];
+            
+            
             [tabBarItems addObject:tabBarItem];
             [viewController rdv_setTabBarController:self];
         }

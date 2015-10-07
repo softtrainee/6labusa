@@ -17,6 +17,7 @@
 
 
 #import <AFNetworking.h>
+#import <SVProgressHUD.h>
 
 
 
@@ -39,8 +40,8 @@
     // label's
     
     UILabel *headerLbl;
-    UILabel *userNameLbl;
-    UILabel *pwdLbl;
+//    UILabel *userNameLbl;
+//    UILabel *pwdLbl;
     
     // textfield's
     
@@ -72,7 +73,7 @@
 
     
     //
-     self.navigationController.navigationBarHidden=TRUE;
+   //  self.navigationController.navigationBarHidden=TRUE;
     
     [self LoginScreen];
     
@@ -108,19 +109,19 @@
     
     
      headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEADER)];
-    [headerView setBackgroundColor:[UIColor colorWithRed:227.0/255.0 green:63.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    [headerView setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:246.0/255.0 blue:247.0/255.0 alpha:1.0]];
     
       /// header label
     
      headerLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 0.0, kSCREEN_WIDTH-40, kSCREEN_HEADER)];
     [headerLbl setFont:[UIFont fontWithName:@"Arial" size:20.0]];
-    [headerLbl setTextColor:[UIColor whiteColor]];
-    [headerLbl setText:@"Login/Register"];
+    [headerLbl setTextColor:[UIColor colorWithRed:107.0/255.0 green:108.0/255.0 blue:109.0/255.0 alpha:1.0]];
+    [headerLbl setText:@"Login"];
      headerLbl.textAlignment = NSTextAlignmentCenter;
     
       // add line header border
      headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
-    [headerline setBackgroundColor:[UIColor colorWithRed:139.0/255.0 green:8.0/255.0 blue:8.0/255.0 alpha:1.0]];
+    [headerline setBackgroundColor:[UIColor whiteColor]];
     
     
     
@@ -137,7 +138,7 @@
     // Scroll view which contain login container
     
     
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10.0, 10.0,centerView.frame.size.width-20, centerView.frame.size.height/1.7)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(kLEFT_MARGIN, 3*kLEFT_MARGIN,centerView.frame.size.width-20, centerView.frame.size.height/2.0)];
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     [scrollView setBackgroundColor:[UIColor clearColor]];
@@ -150,17 +151,17 @@
     
     
     
-     userNameLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 0.0, centerView.frame.size.width-40, kSCREEN_HEADER)];
-    [userNameLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
-    [userNameLbl setTextColor:[UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:93.0/255.0 alpha:1.0]];
-    [userNameLbl setText:@"User Name"];
-    [scrollView addSubview:userNameLbl];
+//     userNameLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 0.0, centerView.frame.size.width-40, kSCREEN_HEADER)];
+//    [userNameLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
+//    [userNameLbl setTextColor:[UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:93.0/255.0 alpha:1.0]];
+//    [userNameLbl setText:@"User Name"];
+//    [scrollView addSubview:userNameLbl];
     
     // userNameLbl text field of centerview controller
     
     
     
-    userNameTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, kSCREEN_HEADER+10.0, scrollView.frame.size.width-40.0, kSCREEN_HEADER)];
+    userNameTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, kLEFT_MARGIN, scrollView.frame.size.width-40.0, kSCREEN_HEADER-kLEFT_MARGIN)];
     [userNameTxt setBorderStyle:UITextBorderStyleNone];
     [userNameTxt setBackground:[[UIImage imageNamed:@"user"] stretchableImageWithLeftCapWidth:2 topCapHeight:2]];
     //[userNameTxt setPlaceholder:@"Enter User Name"];
@@ -172,19 +173,19 @@
     
     // pwdLbl label of center view
     
-     pwdLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 2*kSCREEN_HEADER+10.0, centerView.frame.size.width-40, kSCREEN_HEADER)];
-    [pwdLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
-    [pwdLbl setTextColor:[UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:93.0/255.0 alpha:1.0]];
-    [pwdLbl setText:@"Password"];
-    [scrollView addSubview:pwdLbl];
-    
+//     pwdLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 2*kSCREEN_HEADER+kLEFT_MARGIN, centerView.frame.size.width-40, kSCREEN_HEADER)];
+//    [pwdLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
+//    [pwdLbl setTextColor:[UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:93.0/255.0 alpha:1.0]];
+//    [pwdLbl setText:@"Password"];
+//    [scrollView addSubview:pwdLbl];
+//    
     
     
     // pwdTxt text field of centerview controller
     
     
     
-    pwdTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, 3*kSCREEN_HEADER+10.0, scrollView.frame.size.width-40.0, kSCREEN_HEADER)];
+    pwdTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, kSCREEN_HEADER+kLEFT_MARGIN, scrollView.frame.size.width-40.0, kSCREEN_HEADER-kLEFT_MARGIN)];
     [pwdTxt setBorderStyle:UITextBorderStyleNone];
     [pwdTxt setBackground:[UIImage imageNamed:@"pwd"]];
     pwdTxt.secureTextEntry=true;
@@ -199,21 +200,22 @@
     // button create for centerview controller
     
     
-     loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-     loginBtn.frame = CGRectMake(20.0, 4*kSCREEN_HEADER+20.0, scrollView.frame.size.width-40, kSCREEN_HEADER-15.0);
+     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+     loginBtn.frame = CGRectMake(20.0, 2*kSCREEN_HEADER+20.0, scrollView.frame.size.width-40, kSCREEN_HEADER-15.0);
      loginBtn.tag=1;
     [loginBtn.titleLabel setTextColor:[UIColor whiteColor]];
     [loginBtn setTitle:@"Login" forState:UIControlStateNormal];
      loginBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
      loginBtn.layer.cornerRadius = 5;
      loginBtn.layer.masksToBounds = YES;
+    loginBtn.titleLabel.font = [UIFont fontWithName:@"arial" size:12.0];
     [loginBtn setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:54.0/255.0 blue:36.0/255.0 alpha:1.0]];
     [loginBtn addTarget:self action:@selector(AuthenticationClick:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:loginBtn];
     
     
     // scroller content set here
-    scrollView.contentSize = CGSizeMake(centerView.frame.size.width-20, 4*kSCREEN_HEADER+80.0);
+    scrollView.contentSize = CGSizeMake(centerView.frame.size.width-20, 3*kSCREEN_HEADER+80.0);
     
     
     
@@ -234,7 +236,7 @@
     
     
     signupBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    signupBtn.frame = CGRectMake(((centerView.frame.size.width-20)/1.5)+10.0, centerView.frame.size.height-140.0, ((centerView.frame.size.width-20)/3)-10, kSCREEN_HEADER-25.0);
+    signupBtn.frame = CGRectMake(((centerView.frame.size.width-20)/1.5)+kLEFT_MARGIN, centerView.frame.size.height-140.0, ((centerView.frame.size.width-20)/3)-10, kSCREEN_HEADER-25.0);
     //signupBtn.tag=1;
     signupBtn.titleLabel.textColor = [UIColor redColor];
     [signupBtn setTitle:@"Sign up" forState:UIControlStateNormal];
@@ -252,7 +254,7 @@
     
 
     fBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    fBtn.frame = CGRectMake(20.0, centerView.frame.size.height-105.0, centerView.frame.size.width-40, kSCREEN_HEADER-10.0);
+    fBtn.frame = CGRectMake(20.0, centerView.frame.size.height-105.0, centerView.frame.size.width-40, kSCREEN_HEADER-kLEFT_MARGIN);
     fBtn.tag=2;
    // [fBtn setImage:[UIImage imageNamed:@"fb"] forState:UIControlStateNormal];
     
@@ -268,7 +270,7 @@
     
     
      twitterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-     twitterBtn.frame = CGRectMake(20.0, centerView.frame.size.height-60.0, centerView.frame.size.width-40, kSCREEN_HEADER-10.0);
+     twitterBtn.frame = CGRectMake(20.0, centerView.frame.size.height-60.0, centerView.frame.size.width-40, kSCREEN_HEADER-kLEFT_MARGIN);
      twitterBtn.tag=3;
     //[twitterBtn setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
     [twitterBtn setBackgroundImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
@@ -320,7 +322,7 @@
                     [ConstantIdentifier getAlert:InternetMessage view:self];
                 }
             }
-            
+            [self LoginAccess];
          
            
             break;
@@ -353,24 +355,35 @@
     
     
     
+    NSUserDefaults *defUsername=[NSUserDefaults standardUserDefaults];
+    [defUsername setObject:userNameTxt.text forKey:@"username"];
+    [defUsername setObject:pwdTxt.text      forKey:@"password"];
+    [defUsername synchronize];
+    [SVProgressHUD showWithStatus:@"Please Wait.." maskType:SVProgressHUDMaskTypeBlack];
+    
+    
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSDictionary *parameters = @{@"Email": @"inform2satishtiwari@gmail.com", @"Password": @"123"};
-    NSString *strURL=BaseURL;
+    NSString *strURL=[BaseURL stringByAppendingString:@"UserLog"];
     
     
     [manager POST:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         NSDictionary *dict=responseObject;
         DLog(@"%@", dict);
-      
+       [SVProgressHUD dismiss];
         
     }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               DLog(@"ERROR: %@", error);
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:InternalError];
+        
               
-              
-          }];
+    }];
     
     /*
     

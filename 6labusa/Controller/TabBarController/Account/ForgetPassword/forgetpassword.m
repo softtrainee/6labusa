@@ -3,6 +3,9 @@
 #import "forgetpassword.h"
 #import "ConstantIdentifier.h"
 
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+
 @interface forgetpassword (){
     // view's
     
@@ -55,13 +58,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Statusbar
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    
-    return UIStatusBarStyleLightContent;
-    
-}
 
 
 
@@ -121,7 +118,7 @@
     // Scroll view which contain login container
     
     
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10.0, 10.0,centerView.frame.size.width-20, centerView.frame.size.height/1.7)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(kLEFT_MARGIN, kLEFT_MARGIN,centerView.frame.size.width-20, centerView.frame.size.height/1.2)];
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     [scrollView setBackgroundColor:[UIColor clearColor]];
@@ -138,7 +135,7 @@
     
     
     
-    headerLbl = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 0.0, centerView.frame.size.width-40, 2*kSCREEN_HEADER)];
+    headerLbl = [[UILabel alloc]initWithFrame:CGRectMake(kLEFT_MARGIN, 0.0, centerView.frame.size.width-40, 2*kSCREEN_HEADER)];
     [headerLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
     [headerLbl setBackgroundColor:[UIColor clearColor]];
     [headerLbl setTextAlignment:NSTextAlignmentJustified];
@@ -149,7 +146,7 @@
     
     
     
-    emailLbl = [[UILabel alloc]initWithFrame:CGRectMake(10.0, headerLbl.frame.size.height+20.0, centerView.frame.size.width-40, 20.0)];
+    emailLbl = [[UILabel alloc]initWithFrame:CGRectMake(kLEFT_MARGIN, headerLbl.frame.size.height+20.0, centerView.frame.size.width-40, 20.0)];
     [emailLbl setFont:[UIFont fontWithName:@"Arial" size:14.0]];
     [emailLbl setBackgroundColor:[UIColor clearColor]];
     //[emailLbl setTextAlignment:NSTextAlignmentCenter];
@@ -165,13 +162,13 @@
     
     
     
-    emailTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, 3*kSCREEN_HEADER+10.0, scrollView.frame.size.width-40.0, kSCREEN_HEADER)];
+    emailTxt = [[UITextField alloc]initWithFrame:CGRectMake(20.0, 3*kSCREEN_HEADER+kLEFT_MARGIN, scrollView.frame.size.width-40.0, kSCREEN_HEADER-kLEFT_MARGIN)];
     
     [emailTxt setBorderStyle:UITextBorderStyleNone];
     [emailTxt setBackground:[UIImage imageNamed:@"pwd"]];
     
     emailTxt.secureTextEntry=true;
-    [emailTxt setPlaceholder:@"Enter email here"];
+//    [emailTxt setPlaceholder:@"Enter email here"];
     emailTxt.font=[UIFont fontWithName:@"HelveticaNeue" size:17.0f];
     emailTxt.returnKeyType=UIReturnKeyDefault;
     emailTxt.delegate=self;
@@ -183,12 +180,13 @@
     // button create for centerview controller
     
     
-    sendBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    sendBtn.frame = CGRectMake(10.0, 4*kSCREEN_HEADER+20.0, scrollView.frame.size.width-20, kSCREEN_HEADER-15.0);
+    sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    sendBtn.frame = CGRectMake(kLEFT_MARGIN, 4*kSCREEN_HEADER+20.0, scrollView.frame.size.width-20, kSCREEN_HEADER-15.0);
     sendBtn.tag=1;
     [sendBtn.titleLabel setTextColor:[UIColor whiteColor]];
     [sendBtn setTitle:@"SEND USER NAME/PASSWORD" forState:UIControlStateNormal];
     sendBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    sendBtn.titleLabel.font = [UIFont fontWithName:@"arial" size:12.0];
     sendBtn.layer.cornerRadius = 5;
     sendBtn.layer.masksToBounds = YES;
     [sendBtn setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:54.0/255.0 blue:36.0/255.0 alpha:1.0]];
@@ -222,17 +220,36 @@
     
     
     
+    [SVProgressHUD showWithStatus:nil maskType:SVProgressHUDMaskTypeBlack];
+    
+
+    
+    // set forget password service
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = @{@"Email": @"inform2satishtiwari@gmail.com", @"Password": @"123"};
+    NSString *strURL=[BaseURL stringByAppendingString:@""];
+    
+    
+    [manager POST:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        NSDictionary *dict=responseObject;
+        DLog(@"%@", dict);
+        [SVProgressHUD dismiss];
+        
+    }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              DLog(@"ERROR: %@", error);
+              [SVProgressHUD dismiss];
+              [SVProgressHUD showErrorWithStatus:InternalError];
+          }];
+
+    
     
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

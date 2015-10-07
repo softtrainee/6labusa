@@ -6,6 +6,6 @@
 
 -(void)HomeScreen;
 -(void)setBackgroundScreen;
-
-
+-(void)LoadServerData;
+-(IBAction)CellBtnClick:(id)sender;
 @end

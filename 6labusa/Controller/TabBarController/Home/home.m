@@ -8,11 +8,18 @@
 
 #import <MFSideMenu/MFSideMenu.h>
 
+#import <SVProgressHUD.h>
+#import <AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
+
+
 
 
 
 
 @interface home (){
+    
 //    // view's
 //    
 //    UIView *mainContainerView;
@@ -26,6 +33,15 @@
     // view's
     
     UIView *mainContainerView;
+    UIView *headerView,*headerline;
+    
+    
+    // header image
+    
+    
+    
+    UIImageView *headerimg,*headerimg2;
+    
     
     // table
     UITableView *myTableView;
@@ -72,6 +88,13 @@
  */
 
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return UIStatusBarStyleLightContent;
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -79,14 +102,16 @@
     self.navigationController.navigationBarHidden=TRUE;
     
     // table view data is being set here
-    myData = [[NSMutableArray alloc]initWithObjects:
-              @"Home",@"Data 2 in array",@"Data 3 in array",
-              @"Data 4 in array",@"Data 5 in array",@"Data 5 in array",
-              @"Data 6 in array",@"Data 7 in array",@"Data 8 in array",
-              @"Data 9 in array", nil];
+   
 
     [self HomeScreen];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self LoadServerData];
+}
+
+
 
 -(void)setBackgroundScreen{
     
@@ -117,15 +142,80 @@
     mainContainerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 20.0, kSCREEN_WIDTH, kSCREEN_HEIGHT)];
     [mainContainerView setBackgroundColor:[UIColor colorWithRed:237.0/255.0 green:238.0/255.0 blue:239.0/255.0 alpha:1.0]];
     
-    myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEIGHT) style:UITableViewStylePlain];
+    
+    // Header View Red color
+    
+    
+    headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEADER)];
+    [headerView setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:246.0/255.0 blue:247.0/255.0 alpha:1.0]];
+    
+    
+    headerimg = [[[UIImageView alloc]initWithFrame:CGRectMake(5.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"headerlogo"]];
+    headerimg.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg];
+    
+    
+    headerimg2 = [[[UIImageView alloc]initWithFrame:CGRectMake(130.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"asalamwalekum"]];
+    headerimg2.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg2];
+    
+    // add line header border
+    headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
+    [headerline setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    
+    
+    myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER+5.0, kSCREEN_WIDTH, kSCREEN_HEIGHT) style:UITableViewStylePlain];
     myTableView.dataSource=self;
     myTableView.delegate=self;
+    [myTableView setShowsHorizontalScrollIndicator:NO];
+    [myTableView setShowsVerticalScrollIndicator:NO];
     
+    
+    [mainContainerView addSubview:headerView];
+    [mainContainerView addSubview:headerline];
     [mainContainerView addSubview:myTableView];
     [self.view addSubview:mainContainerView];
     
     
 }
+
+
+-(void)LoadServerData{
+    
+    [SVProgressHUD showWithStatus:@"Please Wait.." maskType:SVProgressHUDMaskTypeBlack];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = nil;
+    NSString *strURL=[BaseURL stringByAppendingString:@"AppsMenu"];
+    
+    
+    [manager GET:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        
+        myData = [[NSMutableArray alloc]initWithArray:responseObject];
+        
+        
+        DLog(@"%@", myData);
+        [SVProgressHUD dismiss];
+        [myTableView reloadData];
+        
+        
+        
+    }
+     
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+             DLog(@"ERROR: %@", error);
+             [SVProgressHUD dismiss];
+             [SVProgressHUD showErrorWithStatus:InternalError];
+         }];
+
+}
+
 
 
 #pragma mark - Table View Data source
@@ -150,18 +240,49 @@
     
     UIImageView *bgView = [[UIImageView alloc]initWithFrame:cell.backgroundView.frame];
     [bgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    bgView.image = [UIImage imageNamed:@"Default.png"];
+     bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//     bgView.image = [UIImage imageNamed:[[myData objectAtIndex:indexPath.row] valueForKey:@"menuIamge"]];
+    
+    [bgView  sd_setImageWithURL:[NSURL URLWithString:[ImageBaseURL stringByAppendingString:[[myData objectAtIndex:indexPath.row] valueForKey:@"menuIamge"]]] placeholderImage:[UIImage imageNamed:[[myData objectAtIndex:indexPath.row] valueForKey:@"menuIamge"]]];
+    
+    
+    UIButton *customBtn;
+    
+    customBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [customBtn setFrame:CGRectMake(0.0, 110.0, cell.frame.size.width, 50.0)];
+      customBtn.tag=indexPath.row;
+    [customBtn.titleLabel setTextColor:[UIColor whiteColor]];
+    [customBtn setTitle:[[myData objectAtIndex:indexPath.row] valueForKey:@"MenuName"] forState:UIControlStateNormal];
+     customBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [customBtn setBackgroundImage:[UIImage imageNamed:@"btnbg"] forState:UIControlStateNormal];
+    
+    [customBtn setBackgroundColor:[UIColor clearColor]];
+    [customBtn addTarget:self action:@selector(CellBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [bgView addSubview:customBtn];
+   
+
     [cell setBackgroundView:bgView];
     
-    NSString *stringForCell;
-    
-    stringForCell= [myData objectAtIndex:indexPath.row];
     
     
-    [cell.textLabel setText:stringForCell];
+//    NSString *stringForCell;
+//    
+//    stringForCell= [[myData objectAtIndex:indexPath.row] valueForKey:@"MenuName"];
+//    
+//    
+//    [cell.textLabel setText:stringForCell];
+    
+    
+    
+    
     return cell;
 }
+
+
+-(IBAction)CellBtnClick:(id)sender{
+    
+}
+
 
 // Default is 1 if not implemented
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -178,27 +299,7 @@
     
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
-(NSInteger)section{
-    
-    NSString *headerTitle;
-    if (section==0) {
-        headerTitle = @"Section 1 Header";
-    }
-    
-    return headerTitle;
-}
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:
-(NSInteger)section{
-    
-    NSString *footerTitle;
-    if (section==0) {
-        footerTitle = @"Section 1 Footer";
-    }
-    
-    return footerTitle;
-    
-}
+
 
 #pragma mark - TableView delegate
 
@@ -214,8 +315,8 @@
     [self.navigationController pushViewController:DetailController animated:YES];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"Section:%d Row:%d selected and its data is %@",
-          indexPath.section,indexPath.row,cell.textLabel.text);
+    NSLog(@"Section:%ld Row:%ld selected and its data is %@",
+          (long)indexPath.section,(long)indexPath.row,cell.textLabel.text);
     
 }
 

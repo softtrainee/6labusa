@@ -69,13 +69,13 @@
     
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         _unselectedTitleAttributes = @{
-                                       NSFontAttributeName: [UIFont systemFontOfSize:12],
+                                       NSFontAttributeName: [UIFont systemFontOfSize:8],
                                        NSForegroundColorAttributeName: [UIColor blackColor],
                                        };
     } else {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
         _unselectedTitleAttributes = @{
-                                       UITextAttributeFont: [UIFont systemFontOfSize:12],
+                                       UITextAttributeFont: [UIFont systemFontOfSize:8],
                                        UITextAttributeTextColor: [UIColor blackColor],
                                        };
 #endif
@@ -84,7 +84,7 @@
     _selectedTitleAttributes = [_unselectedTitleAttributes copy];
     _badgeBackgroundColor = [UIColor redColor];
     _badgeTextColor = [UIColor whiteColor];
-    _badgeTextFont = [UIFont systemFontOfSize:12];
+    _badgeTextFont = [UIFont systemFontOfSize:8];
     _badgePositionAdjustment = UIOffsetZero;
 }
 

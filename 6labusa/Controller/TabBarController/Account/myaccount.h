@@ -5,5 +5,6 @@
 @interface myaccount : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 -(void)AccountScreen;
+-(void)LoginView;
 
 @end

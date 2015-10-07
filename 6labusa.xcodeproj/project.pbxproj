@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AE0E4E311BBA7D190065E9EA /* leftmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E4E301BBA7D190065E9EA /* leftmenu.m */; settings = {ASSET_TAGS = (); }; };
 		AE0E4E341BBA7D920065E9EA /* tbl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E4E331BBA7D920065E9EA /* tbl.m */; settings = {ASSET_TAGS = (); }; };
-		AE0E4E381BBA871D0065E9EA /* product.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E4E371BBA871D0065E9EA /* product.m */; settings = {ASSET_TAGS = (); }; };
 		AE1F36261BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F35FC1BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m */; settings = {ASSET_TAGS = (); }; };
 		AE1F36271BB92C9400B0EE2F /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F35FE1BB92C9400B0EE2F /* NSString+URLEncoding.m */; settings = {ASSET_TAGS = (); }; };
 		AE1F36281BB92C9400B0EE2F /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36001BB92C9400B0EE2F /* NSURL+Base.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,7 +33,9 @@
 		AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36411BB9338A00B0EE2F /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AE1F36631BB966CF00B0EE2F /* sharedobject.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1F36621BB966CF00B0EE2F /* sharedobject.m */; settings = {ASSET_TAGS = (); }; };
-		AE23505F1BBA8DB300FFB32B /* productdetail.m in Sources */ = {isa = PBXBuildFile; fileRef = AE23505E1BBA8DB300FFB32B /* productdetail.m */; settings = {ASSET_TAGS = (); }; };
+		AE3B8E3D1BC52C5900C2B467 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3B8E3C1BC52C5900C2B467 /* CoreLocation.framework */; };
+		AE3B8E3F1BC52C6000C2B467 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3B8E3E1BC52C6000C2B467 /* MapKit.framework */; };
+		AE3B8E431BC52F0900C2B467 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3B8E421BC52F0900C2B467 /* MapPoint.m */; settings = {ASSET_TAGS = (); }; };
 		AE8127A91BB53BCD008355BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127A81BB53BCD008355BA /* main.m */; };
 		AE8127AC1BB53BCD008355BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AB1BB53BCD008355BA /* AppDelegate.m */; };
 		AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AE1BB53BCD008355BA /* ViewController.m */; };
@@ -42,6 +43,8 @@
 		AE8127B41BB53BCD008355BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B31BB53BCD008355BA /* Assets.xcassets */; };
 		AE8127B71BB53BCD008355BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8127B51BB53BCD008355BA /* LaunchScreen.storyboard */; };
 		AE8127C61BB54920008355BA /* ConstantIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127C51BB54920008355BA /* ConstantIdentifier.m */; settings = {ASSET_TAGS = (); }; };
+		AEBB24BE1BC3C5C3008D1952 /* product.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBB24BA1BC3C5C3008D1952 /* product.m */; settings = {ASSET_TAGS = (); }; };
+		AEBB24BF1BC3C5C3008D1952 /* productdetail.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBB24BD1BC3C5C3008D1952 /* productdetail.m */; settings = {ASSET_TAGS = (); }; };
 		AECB772A1BBBC83600F49A81 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AECB77251BBBC83600F49A81 /* RDVTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
 		AECB772B1BBBC83600F49A81 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AECB77271BBBC83600F49A81 /* RDVTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		AECB772C1BBBC83600F49A81 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECB77291BBBC83600F49A81 /* RDVTabBarController.m */; settings = {ASSET_TAGS = (); }; };
@@ -122,8 +125,6 @@
 		AE0E4E301BBA7D190065E9EA /* leftmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftmenu.m; sourceTree = "<group>"; };
 		AE0E4E321BBA7D920065E9EA /* tbl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tbl.h; sourceTree = "<group>"; };
 		AE0E4E331BBA7D920065E9EA /* tbl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tbl.m; sourceTree = "<group>"; };
-		AE0E4E361BBA871D0065E9EA /* product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = product.h; sourceTree = "<group>"; };
-		AE0E4E371BBA871D0065E9EA /* product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = product.m; sourceTree = "<group>"; };
 		AE1F35FB1BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		AE1F35FC1BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
 		AE1F35FD1BB92C9400B0EE2F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -170,8 +171,10 @@
 		AE1F36431BB936A800B0EE2F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AE1F36611BB966CF00B0EE2F /* sharedobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sharedobject.h; sourceTree = "<group>"; };
 		AE1F36621BB966CF00B0EE2F /* sharedobject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sharedobject.m; sourceTree = "<group>"; };
-		AE23505D1BBA8DB300FFB32B /* productdetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productdetail.h; sourceTree = "<group>"; };
-		AE23505E1BBA8DB300FFB32B /* productdetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productdetail.m; sourceTree = "<group>"; };
+		AE3B8E3C1BC52C5900C2B467 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AE3B8E3E1BC52C6000C2B467 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AE3B8E411BC52F0900C2B467 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
+		AE3B8E421BC52F0900C2B467 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		AE8127A41BB53BCD008355BA /* 6labusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 6labusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8127A81BB53BCD008355BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE8127AA1BB53BCD008355BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +187,10 @@
 		AE8127B81BB53BCD008355BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8127C41BB54920008355BA /* ConstantIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantIdentifier.h; sourceTree = "<group>"; };
 		AE8127C51BB54920008355BA /* ConstantIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantIdentifier.m; sourceTree = "<group>"; };
+		AEBB24B91BC3C5C3008D1952 /* product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = product.h; sourceTree = "<group>"; };
+		AEBB24BA1BC3C5C3008D1952 /* product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = product.m; sourceTree = "<group>"; };
+		AEBB24BC1BC3C5C3008D1952 /* productdetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productdetail.h; sourceTree = "<group>"; };
+		AEBB24BD1BC3C5C3008D1952 /* productdetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productdetail.m; sourceTree = "<group>"; };
 		AECB77241BBBC83600F49A81 /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
 		AECB77251BBBC83600F49A81 /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
 		AECB77261BBBC83600F49A81 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
@@ -278,6 +285,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3B8E3F1BC52C6000C2B467 /* MapKit.framework in Frameworks */,
+				AE3B8E3D1BC52C5900C2B467 /* CoreLocation.framework in Frameworks */,
 				AE1F36441BB936A800B0EE2F /* FBSDKLoginKit.framework in Frameworks */,
 				AE1F36421BB9338A00B0EE2F /* FBSDKCoreKit.framework in Frameworks */,
 				CAE049A8B52C839376972AEA /* libPods-6labusa.a in Frameworks */,
@@ -290,8 +299,6 @@
 		AE0E4E261BBA7C770065E9EA /* Slider */ = {
 			isa = PBXGroup;
 			children = (
-				AE23505C1BBA8DA400FFB32B /* productdetail */,
-				AE0E4E351BBA870D0065E9EA /* Product */,
 				AE0E4E2B1BBA7D000065E9EA /* leftmenu */,
 				AE0E4E321BBA7D920065E9EA /* tbl.h */,
 				AE0E4E331BBA7D920065E9EA /* tbl.m */,
@@ -306,15 +313,6 @@
 				AE0E4E301BBA7D190065E9EA /* leftmenu.m */,
 			);
 			path = leftmenu;
-			sourceTree = "<group>";
-		};
-		AE0E4E351BBA870D0065E9EA /* Product */ = {
-			isa = PBXGroup;
-			children = (
-				AE0E4E361BBA871D0065E9EA /* product.h */,
-				AE0E4E371BBA871D0065E9EA /* product.m */,
-			);
-			path = Product;
 			sourceTree = "<group>";
 		};
 		AE1F35F81BB92C9400B0EE2F /* TwitterOAuthViewController */ = {
@@ -402,6 +400,7 @@
 		AE1F365F1BB966B900B0EE2F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AE3B8E401BC52F0900C2B467 /* MapPoint */,
 				AE1F36601BB966B900B0EE2F /* SharedObject */,
 			);
 			path = Utilities;
@@ -416,13 +415,13 @@
 			path = SharedObject;
 			sourceTree = "<group>";
 		};
-		AE23505C1BBA8DA400FFB32B /* productdetail */ = {
+		AE3B8E401BC52F0900C2B467 /* MapPoint */ = {
 			isa = PBXGroup;
 			children = (
-				AE23505D1BBA8DB300FFB32B /* productdetail.h */,
-				AE23505E1BBA8DB300FFB32B /* productdetail.m */,
+				AE3B8E411BC52F0900C2B467 /* MapPoint.h */,
+				AE3B8E421BC52F0900C2B467 /* MapPoint.m */,
 			);
-			path = productdetail;
+			path = MapPoint;
 			sourceTree = "<group>";
 		};
 		AE81279B1BB53BCD008355BA = {
@@ -496,6 +495,25 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		AEBB24B81BC3C5C3008D1952 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB24B91BC3C5C3008D1952 /* product.h */,
+				AEBB24BA1BC3C5C3008D1952 /* product.m */,
+				AEBB24BB1BC3C5C3008D1952 /* productdetail */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		AEBB24BB1BC3C5C3008D1952 /* productdetail */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB24BC1BC3C5C3008D1952 /* productdetail.h */,
+				AEBB24BD1BC3C5C3008D1952 /* productdetail.m */,
+			);
+			path = productdetail;
+			sourceTree = "<group>";
+		};
 		AED749AD1BBBC22800E6EE8D /* CustomTabar */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +583,7 @@
 		AED7F9871BC272F700D13DE1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				AEBB24B81BC3C5C3008D1952 /* Product */,
 				AED7FA541BC2745700D13DE1 /* category.h */,
 				AED7FA551BC2745700D13DE1 /* category.m */,
 			);
@@ -730,6 +749,8 @@
 		B56614CC9FD574A350DDB046 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE3B8E3E1BC52C6000C2B467 /* MapKit.framework */,
+				AE3B8E3C1BC52C5900C2B467 /* CoreLocation.framework */,
 				A80C2A0A6D0C6AFDC1B9CF99 /* libPods-6labusa.a */,
 			);
 			name = Frameworks;
@@ -920,18 +941,20 @@
 				AE1F36311BB92C9400B0EE2F /* OAMutableURLRequest.m in Sources */,
 				AEDB0C0E1BC2A63A00D3DB55 /* trackorder.m in Sources */,
 				AEDB0C081BC2A61500D3DB55 /* faq.m in Sources */,
+				AE3B8E431BC52F0900C2B467 /* MapPoint.m in Sources */,
 				AED7FA4D1BC273C400D13DE1 /* home.m in Sources */,
 				AED7FA531BC2743500D13DE1 /* mosque.m in Sources */,
+				AEBB24BE1BC3C5C3008D1952 /* product.m in Sources */,
 				AE8127A91BB53BCD008355BA /* main.m in Sources */,
 				AE1F36341BB92C9400B0EE2F /* OARequestParameter.m in Sources */,
 				AED7FA501BC2741F00D13DE1 /* vendor.m in Sources */,
 				AE1F362B1BB92C9400B0EE2F /* sha1.c in Sources */,
-				AE0E4E381BBA871D0065E9EA /* product.m in Sources */,
 				AECB772C1BBBC83600F49A81 /* RDVTabBarController.m in Sources */,
 				AE1F36371BB92C9400B0EE2F /* OAToken.m in Sources */,
 				AE1F36261BB92C9400B0EE2F /* NSMutableURLRequest+Parameters.m in Sources */,
 				AE1F36631BB966CF00B0EE2F /* sharedobject.m in Sources */,
 				AE1F36351BB92C9400B0EE2F /* OAServiceTicket.m in Sources */,
+				AEBB24BF1BC3C5C3008D1952 /* productdetail.m in Sources */,
 				AECB772B1BBBC83600F49A81 /* RDVTabBar.m in Sources */,
 				AE1F362F1BB92C9400B0EE2F /* OADataFetcher.m in Sources */,
 				AEDB0C051BC2A60200D3DB55 /* contactus.m in Sources */,
@@ -949,7 +972,6 @@
 				AE0E4E311BBA7D190065E9EA /* leftmenu.m in Sources */,
 				AECB772A1BBBC83600F49A81 /* RDVTabBarItem.m in Sources */,
 				AE1F362C1BB92C9400B0EE2F /* OAAttachment.m in Sources */,
-				AE23505F1BBA8DB300FFB32B /* productdetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

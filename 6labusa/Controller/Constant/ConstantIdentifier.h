@@ -23,9 +23,10 @@
 
 
 //  login screen header
-
+#define kLEFT_MARGIN 10
 #define kSCREEN_HEADER 50
-#define kSCREEN_CENTERVIEWHEIGHT kSCREEN_HEIGHT-(2.2*kSCREEN_HEADER)
+#define kTXT_HEIGHT 30
+#define kSCREEN_CENTERVIEWHEIGHT kSCREEN_HEIGHT-(1.7*kSCREEN_HEADER)
 
 // error manage by macro
 
@@ -38,10 +39,11 @@
 
 //All URLs
 
-#define BaseURL @"http://6labusa.projectupdate.website/api/UserLog"
-#define ImageBaseURL @""
+#define BaseURL @"http://6labusa.projectupdate.website/api/"
+#define ImageBaseURL @"http://6labusa.projectupdate.website"
 
-
+#define kGOOGLE_API_KEY @"AIzaSyDa7zr2sb6Mldp0396nb3bUwQEHrvVHgxU"
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 
 #import <UIKit/UIKit.h>
