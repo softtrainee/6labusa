@@ -41,6 +41,7 @@
 
 #define BaseURL @"http://6labusa.projectupdate.website/api/"
 #define ImageBaseURL @"http://6labusa.projectupdate.website"
+#define BlockURL @"http://6labusa.projectupdate.website/blog/"
 
 #define kGOOGLE_API_KEY @"AIzaSyDa7zr2sb6Mldp0396nb3bUwQEHrvVHgxU"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)

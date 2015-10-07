@@ -36,6 +36,8 @@
 		AE3B8E3D1BC52C5900C2B467 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3B8E3C1BC52C5900C2B467 /* CoreLocation.framework */; };
 		AE3B8E3F1BC52C6000C2B467 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3B8E3E1BC52C6000C2B467 /* MapKit.framework */; };
 		AE3B8E431BC52F0900C2B467 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3B8E421BC52F0900C2B467 /* MapPoint.m */; settings = {ASSET_TAGS = (); }; };
+		AE3B8E471BC5415E00C2B467 /* blog.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3B8E461BC5415E00C2B467 /* blog.m */; settings = {ASSET_TAGS = (); }; };
+		AE3B8E4B1BC546D700C2B467 /* nearmosque.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3B8E4A1BC546D700C2B467 /* nearmosque.m */; settings = {ASSET_TAGS = (); }; };
 		AE8127A91BB53BCD008355BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127A81BB53BCD008355BA /* main.m */; };
 		AE8127AC1BB53BCD008355BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AB1BB53BCD008355BA /* AppDelegate.m */; };
 		AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8127AE1BB53BCD008355BA /* ViewController.m */; };
@@ -69,7 +71,6 @@
 		AEDB0BF71BC2961C00D3DB55 /* productdetails.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEDB0BED1BC2961C00D3DB55 /* productdetails.jpg */; settings = {ASSET_TAGS = (); }; };
 		AEDB0BF81BC2961C00D3DB55 /* register.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEDB0BEE1BC2961C00D3DB55 /* register.jpg */; settings = {ASSET_TAGS = (); }; };
 		AEDB0BF91BC2961C00D3DB55 /* shoppingcart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEDB0BEF1BC2961C00D3DB55 /* shoppingcart.jpg */; settings = {ASSET_TAGS = (); }; };
-		AEDB0C021BC2A5EE00D3DB55 /* blog.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDB0C011BC2A5EE00D3DB55 /* blog.m */; settings = {ASSET_TAGS = (); }; };
 		AEDB0C051BC2A60200D3DB55 /* contactus.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDB0C041BC2A60200D3DB55 /* contactus.m */; settings = {ASSET_TAGS = (); }; };
 		AEDB0C081BC2A61500D3DB55 /* faq.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDB0C071BC2A61500D3DB55 /* faq.m */; settings = {ASSET_TAGS = (); }; };
 		AEDB0C0B1BC2A62600D3DB55 /* policy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDB0C0A1BC2A62600D3DB55 /* policy.m */; settings = {ASSET_TAGS = (); }; };
@@ -175,6 +176,10 @@
 		AE3B8E3E1BC52C6000C2B467 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AE3B8E411BC52F0900C2B467 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		AE3B8E421BC52F0900C2B467 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		AE3B8E451BC5415E00C2B467 /* blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blog.h; sourceTree = "<group>"; };
+		AE3B8E461BC5415E00C2B467 /* blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = blog.m; sourceTree = "<group>"; };
+		AE3B8E491BC546D700C2B467 /* nearmosque.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nearmosque.h; sourceTree = "<group>"; };
+		AE3B8E4A1BC546D700C2B467 /* nearmosque.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nearmosque.m; sourceTree = "<group>"; };
 		AE8127A41BB53BCD008355BA /* 6labusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 6labusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8127A81BB53BCD008355BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE8127AA1BB53BCD008355BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -226,8 +231,6 @@
 		AEDB0BED1BC2961C00D3DB55 /* productdetails.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = productdetails.jpg; sourceTree = "<group>"; };
 		AEDB0BEE1BC2961C00D3DB55 /* register.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = register.jpg; sourceTree = "<group>"; };
 		AEDB0BEF1BC2961C00D3DB55 /* shoppingcart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppingcart.jpg; sourceTree = "<group>"; };
-		AEDB0C001BC2A5EE00D3DB55 /* blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blog.h; sourceTree = "<group>"; };
-		AEDB0C011BC2A5EE00D3DB55 /* blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = blog.m; sourceTree = "<group>"; };
 		AEDB0C031BC2A60200D3DB55 /* contactus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactus.h; sourceTree = "<group>"; };
 		AEDB0C041BC2A60200D3DB55 /* contactus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactus.m; sourceTree = "<group>"; };
 		AEDB0C061BC2A61500D3DB55 /* faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faq.h; sourceTree = "<group>"; };
@@ -424,6 +427,24 @@
 			path = MapPoint;
 			sourceTree = "<group>";
 		};
+		AE3B8E441BC5415E00C2B467 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				AE3B8E451BC5415E00C2B467 /* blog.h */,
+				AE3B8E461BC5415E00C2B467 /* blog.m */,
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		AE3B8E481BC546BF00C2B467 /* NearMosque */ = {
+			isa = PBXGroup;
+			children = (
+				AE3B8E491BC546D700C2B467 /* nearmosque.h */,
+				AE3B8E4A1BC546D700C2B467 /* nearmosque.m */,
+			);
+			path = NearMosque;
+			sourceTree = "<group>";
+		};
 		AE81279B1BB53BCD008355BA = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +632,8 @@
 		AED7FA4A1BC273C400D13DE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AE3B8E481BC546BF00C2B467 /* NearMosque */,
+				AE3B8E441BC5415E00C2B467 /* Blog */,
 				AED7FA4B1BC273C400D13DE1 /* home.h */,
 				AED7FA4C1BC273C400D13DE1 /* home.m */,
 			);
@@ -637,22 +660,12 @@
 		AEDB0BFA1BC2A57D00D3DB55 /* AccountCellViewContainer */ = {
 			isa = PBXGroup;
 			children = (
-				AEDB0BFB1BC2A5D800D3DB55 /* Blog */,
 				AEDB0BFC1BC2A5D800D3DB55 /* ContactUs */,
 				AEDB0BFD1BC2A5D800D3DB55 /* FAQ */,
 				AEDB0BFE1BC2A5D800D3DB55 /* Policy */,
 				AEDB0BFF1BC2A5D800D3DB55 /* TrackOrder */,
 			);
 			path = AccountCellViewContainer;
-			sourceTree = "<group>";
-		};
-		AEDB0BFB1BC2A5D800D3DB55 /* Blog */ = {
-			isa = PBXGroup;
-			children = (
-				AEDB0C001BC2A5EE00D3DB55 /* blog.h */,
-				AEDB0C011BC2A5EE00D3DB55 /* blog.m */,
-			);
-			path = Blog;
 			sourceTree = "<group>";
 		};
 		AEDB0BFC1BC2A5D800D3DB55 /* ContactUs */ = {
@@ -932,7 +945,6 @@
 				AE1F363A1BB92C9400B0EE2F /* TwitterOAuthViewController.m in Sources */,
 				AE1F36281BB92C9400B0EE2F /* NSURL+Base.m in Sources */,
 				AE1F362D1BB92C9400B0EE2F /* OACall.m in Sources */,
-				AEDB0C021BC2A5EE00D3DB55 /* blog.m in Sources */,
 				AE8127AF1BB53BCD008355BA /* ViewController.m in Sources */,
 				AE1F36381BB92C9400B0EE2F /* OATokenManager.m in Sources */,
 				AE1F36321BB92C9400B0EE2F /* OAPlaintextSignatureProvider.m in Sources */,
@@ -958,10 +970,12 @@
 				AECB772B1BBBC83600F49A81 /* RDVTabBar.m in Sources */,
 				AE1F362F1BB92C9400B0EE2F /* OADataFetcher.m in Sources */,
 				AEDB0C051BC2A60200D3DB55 /* contactus.m in Sources */,
+				AE3B8E471BC5415E00C2B467 /* blog.m in Sources */,
 				AE1F36331BB92C9400B0EE2F /* OAProblem.m in Sources */,
 				AED7FA561BC2745700D13DE1 /* category.m in Sources */,
 				AE1F362E1BB92C9400B0EE2F /* OAConsumer.m in Sources */,
 				AE1F36301BB92C9400B0EE2F /* OAHMAC_SHA1SignatureProvider.m in Sources */,
+				AE3B8E4B1BC546D700C2B467 /* nearmosque.m in Sources */,
 				AE1F36271BB92C9400B0EE2F /* NSString+URLEncoding.m in Sources */,
 				AE0E4E341BBA7D920065E9EA /* tbl.m in Sources */,
 				AE1F36291BB92C9400B0EE2F /* Base64Transcoder.c in Sources */,

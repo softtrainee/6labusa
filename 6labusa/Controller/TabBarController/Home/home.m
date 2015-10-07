@@ -4,7 +4,8 @@
 #import "ConstantIdentifier.h"
 
 #import "productdetail.h"
-
+#import "nearmosque.h"
+#import "blog.h"
 
 #import <MFSideMenu/MFSideMenu.h>
 
@@ -310,13 +311,38 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
-    // demo push code
-    productdetail *DetailController =[[productdetail alloc]init];
-    [self.navigationController pushViewController:DetailController animated:YES];
+    id controller ;
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"Section:%ld Row:%ld selected and its data is %@",
-          (long)indexPath.section,(long)indexPath.row,cell.textLabel.text);
+    switch (indexPath.row) {
+        case 0:
+            
+             controller =[[blog alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            break;
+        case 2:
+            
+            controller =[[nearmosque alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    // demo push code
+    
+
+    
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    NSLog(@"Section:%ld Row:%ld selected and its data is %@",
+//          (long)indexPath.section,(long)indexPath.row,cell.textLabel.text);
+    
+    
+    
+    
+    
     
 }
 
