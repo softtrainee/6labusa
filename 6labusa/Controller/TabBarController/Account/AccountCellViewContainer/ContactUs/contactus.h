@@ -4,4 +4,6 @@
 
 @interface contactus : UIViewController
 
+-(void)ContactDesign;
+
 @end

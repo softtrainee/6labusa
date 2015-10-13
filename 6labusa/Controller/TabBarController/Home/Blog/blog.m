@@ -76,7 +76,7 @@
     // center view
     
     
-    webview = [[UIWebView alloc]initWithFrame:CGRectMake(10.0, kSCREEN_HEADER+10.0, kSCREEN_WIDTH-20.0, kSCREEN_CENTERVIEWHEIGHT+10.0)];
+    webview = [[UIWebView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER+10.0, kSCREEN_WIDTH, kSCREEN_CENTERVIEWHEIGHT+10.0)];
     webview.layer.cornerRadius = 7;
     webview.layer.masksToBounds = YES;
     webview.scrollView.showsHorizontalScrollIndicator = NO;

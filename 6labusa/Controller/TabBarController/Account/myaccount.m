@@ -11,6 +11,7 @@
 #import "faq.h"
 #import "policy.h"
 #import "trackorder.h"
+#import "aboutus.h"
 
 
 
@@ -50,7 +51,7 @@
     // table view data is being set here
     
     myData = [[NSMutableArray alloc]initWithObjects:
-              @"Track My Order",@"Contact us",@"Policy",
+              @"About us",@"Contact us",@"Policy",
               @"FAQ'S", nil];
     
     [self AccountScreen];
@@ -198,8 +199,9 @@
     
     switch (indexPath.row) {
         case 0:
-              controller = [[trackorder alloc]init];
+              controller = [[aboutus alloc]init];
               [self.navigationController pushViewController:controller animated:NO];
+            
             break;
             
         case 1:

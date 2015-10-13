@@ -47,6 +47,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application  openURL:url sourceApplication:sourceApplication  annotation:annotation
             ];
 }
@@ -157,12 +158,12 @@
     UIViewController *secondNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:secondViewController];
     
-    
-    
-    vendor *thirdViewController = [[vendor alloc] init];
-    UIViewController *thirdNavigationController = [[UINavigationController alloc]
-                                                   initWithRootViewController:thirdViewController];
-    
+//    
+//    
+//    vendor *thirdViewController = [[vendor alloc] init];
+//    UIViewController *thirdNavigationController = [[UINavigationController alloc]
+//                                                   initWithRootViewController:thirdViewController];
+//    
     
     
     
@@ -184,7 +185,7 @@
     
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
     [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
-                                           thirdNavigationController,forthNavigationController,fifthNavigationController]];
+                                           forthNavigationController,fifthNavigationController]];
     self.viewController = tabBarController;
     
     [self customizeTabBarForController:tabBarController];
@@ -194,8 +195,8 @@
     
     UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
     UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
-    NSArray *tabBarItemImages = @[@"first", @"second", @"v11",@"m11",@"A11"];
-    NSArray *tabBarItemName = @[@"Home",@"Categoary",@"Vendor",@"Mosque",@"Account"];
+    NSArray *tabBarItemImages = @[@"first", @"second", @"m11",@"A11"];
+    NSArray *tabBarItemName = @[@"Home",@"Categoary",@"Mosque",@"Account"];
     NSInteger index = 0;
     
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {

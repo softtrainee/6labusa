@@ -33,6 +33,11 @@
     UIView *centerView;
     
     
+    // header image
+    
+    UIImageView *headerimg,*headerimg2;
+    
+    
     // Scroll View which contain user info
 
     UIScrollView *scrollView;
@@ -47,6 +52,12 @@
     
     UITextField *userNameTxt;
     UITextField *pwdTxt;
+    
+    
+    // uiimageview
+    
+    UIImageView *orImg;
+    
     
     
     // button's
@@ -72,12 +83,9 @@
     // Do any additional setup after loading the view.
 
     
-    //
    //  self.navigationController.navigationBarHidden=TRUE;
     
     [self LoginScreen];
-    
-    
     
 }
 
@@ -105,23 +113,28 @@
      mainContainerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 20.0, kSCREEN_WIDTH, kSCREEN_HEIGHT)];
     [mainContainerView setBackgroundColor:[UIColor colorWithRed:237.0/255.0 green:238.0/255.0 blue:239.0/255.0 alpha:1.0]];
     
-      // Header View Red color
+    // Header View Red color
     
     
-     headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEADER)];
+    headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEADER)];
     [headerView setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:246.0/255.0 blue:247.0/255.0 alpha:1.0]];
     
-      /// header label
     
-     headerLbl = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 0.0, kSCREEN_WIDTH-40, kSCREEN_HEADER)];
-    [headerLbl setFont:[UIFont fontWithName:@"Arial" size:20.0]];
-    [headerLbl setTextColor:[UIColor colorWithRed:107.0/255.0 green:108.0/255.0 blue:109.0/255.0 alpha:1.0]];
-    [headerLbl setText:@"Login"];
-     headerLbl.textAlignment = NSTextAlignmentCenter;
+    headerimg = [[[UIImageView alloc]initWithFrame:CGRectMake(10.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"headerlogo"]];
+    headerimg.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg];
     
-      // add line header border
-     headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
+    
+    headerimg2 = [[[UIImageView alloc]initWithFrame:CGRectMake(kSCREEN_WIDTH-120.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"asalamwalekum"]];
+    headerimg2.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg2];
+    
+    // add line header border
+    headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
     [headerline setBackgroundColor:[UIColor whiteColor]];
+    
+    
+
     
     
     
@@ -235,6 +248,18 @@
     
     
     
+    // orimage view here
+    
+    orImg =[[UIImageView alloc] initWithFrame:CGRectMake(forgetPwdBtn.frame.size.width+30.0,centerView.frame.size.height-145.0,30.0,30.0)];
+    orImg.image=[UIImage imageNamed:@"or"];
+   [centerView addSubview:orImg];
+    
+    
+    
+    
+    
+    
+    
     signupBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     signupBtn.frame = CGRectMake(((centerView.frame.size.width-20)/1.5)+kLEFT_MARGIN, centerView.frame.size.height-140.0, ((centerView.frame.size.width-20)/3)-10, kSCREEN_HEADER-25.0);
     //signupBtn.tag=1;
@@ -282,8 +307,6 @@
     //[twitterBtn setBackgroundColor:[UIColor colorWithRed:13.0/255.0 green:180.0/255.0 blue:248.0/255.0 alpha:1.0]];
     [twitterBtn addTarget:self action:@selector(AuthenticationClick:) forControlEvents:UIControlEventTouchUpInside];
     [centerView addSubview:twitterBtn];
-    
-    
     
     
     
@@ -415,17 +438,49 @@
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        
         if (error) {
             NSLog(@"Process error");
         } else if (result.isCancelled) {
             NSLog(@"Cancelled");
         } else {
+            
+            DLog(@"Fb Detail %@",[[result valueForKey:@"token"] valueForKey:@"tokenString"]);
+            
             NSLog(@"Logged in");
             
             
             
         }
+   
     }];
+    
+    
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture, email"}]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         if (!error) {
+             
+             DLog(@"%@", result);
+             
+//             NSString *pictureURL = [NSString stringWithFormat:@"%@",[result objectForKey:@"picture"]];
+//             
+//             NSLog(@"email is %@", [result objectForKey:@"email"]);
+//             
+////             NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
+////             _imageView.image = [UIImage imageWithData:data];
+             
+         }
+         else{
+//             NSLog(@"%@", [error localizedDescription]);
+              DLog(@"%@", error);
+             
+         }
+     }];
+    
+    
+    
+    
+    
     
     //    [login logInWithReadPermissions: @[@"public_profile"]
     //     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
@@ -454,6 +509,30 @@
     [self.navigationController pushViewController:controller animated:YES];
     //[self.navigationController presentViewController:controller animated:YES completion:nil];
     
+}
+
+
+-(void)SocialCredentialPassToServer{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = @{@"Name": @"", @"Email" : @"inform2satishtiwari@gmail.com", @"Address": @"", @"TokenNo": @"", @"Image" : @""};
+    NSString *strURL=[BaseURL stringByAppendingString:@"SocialLogin"];
+    
+    [manager POST:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        NSDictionary *dict=responseObject;
+        DLog(@"%@", dict);
+        [SVProgressHUD dismiss];
+        
+    }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              DLog(@"ERROR: %@", error);
+              [SVProgressHUD dismiss];
+              [SVProgressHUD showErrorWithStatus:InternalError];
+              
+              
+          }];
 }
 
 

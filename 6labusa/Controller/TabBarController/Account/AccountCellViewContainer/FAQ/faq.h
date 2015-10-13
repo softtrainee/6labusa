@@ -4,4 +4,7 @@
 
 @interface faq : UIViewController
 
+-(void)FaqDesign;
+-(void)LoadFaq;
+
 @end

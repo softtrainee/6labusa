@@ -20,6 +20,12 @@
     
     
     
+    // header image
+    
+    UIImageView *headerimg,*headerimg2;
+    
+    
+    
     // label's
     
     UILabel *headerLbl;
@@ -74,8 +80,21 @@
     
     
     headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, kSCREEN_WIDTH, kSCREEN_HEADER)];
-    [headerView setBackgroundColor:[UIColor colorWithRed:227.0/255.0 green:63.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    [headerView setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:246.0/255.0 blue:247.0/255.0 alpha:1.0]];
     
+    
+    headerimg = [[[UIImageView alloc]initWithFrame:CGRectMake(10.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"headerlogo"]];
+    headerimg.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg];
+    
+    
+    headerimg2 = [[[UIImageView alloc]initWithFrame:CGRectMake(kSCREEN_WIDTH-120.0, 5.0, 100.0, kSCREEN_HEADER-5.0)]initWithImage:[UIImage imageNamed:@"asalamwalekum"]];
+    headerimg2.contentMode = UIViewContentModeScaleAspectFit;
+    [headerView addSubview:headerimg2];
+    
+    // add line header border
+    headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
+    [headerline setBackgroundColor:[UIColor whiteColor]];
     
     // close btn
     
@@ -94,14 +113,6 @@
     
     
     
-    
-    
-    
-    // add line header border
-    headerline = [[UIView alloc]initWithFrame:CGRectMake(0.0, kSCREEN_HEADER, kSCREEN_WIDTH, 3.0)];
-    [headerline setBackgroundColor:[UIColor colorWithRed:139.0/255.0 green:8.0/255.0 blue:8.0/255.0 alpha:1.0]];
-    
-
     
     // center view
     
@@ -222,15 +233,13 @@
     
     [SVProgressHUD showWithStatus:nil maskType:SVProgressHUDMaskTypeBlack];
     
-
-    
     // set forget password service
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSDictionary *parameters = @{@"Email": @"inform2satishtiwari@gmail.com", @"Password": @"123"};
-    NSString *strURL=[BaseURL stringByAppendingString:@""];
+    NSDictionary *parameters = @{@"Email": @"inform2satishtiwari@gmail.com"};
+    NSString *strURL=[BaseURL stringByAppendingString:@"UserForgatepassword"];
     
     
     [manager POST:strURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){

@@ -1,7 +1,7 @@
 
 #import "nearmosque.h"
 #import "ConstantIdentifier.h"
-
+#import "mosquedescription.h"
 
 
 // google place PI data load
@@ -219,6 +219,8 @@
     
     // demo push code
     
+    mosquedescription *controller = [[mosquedescription alloc]init];
+    [self.navigationController pushViewController:controller animated:YES];
     
   
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

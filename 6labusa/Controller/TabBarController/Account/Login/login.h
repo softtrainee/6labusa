@@ -15,4 +15,7 @@
 -(void)TwitterAccess;
 -(void)FaceBookAccess;
 
+-(void)SocialCredentialPassToServer;
+
+
 @end

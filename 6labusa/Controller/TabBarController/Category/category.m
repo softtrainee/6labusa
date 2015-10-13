@@ -4,8 +4,13 @@
 #import "ConstantIdentifier.h"
 
 #import "Product/product.h"
+#import "myproduct.h"
+
+// network server access file
+
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface category (){
@@ -163,9 +168,6 @@
 
 
 
-
-
-
 #pragma mark - Table View Data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
 (NSInteger)section{
@@ -187,15 +189,47 @@
     
     
     
-   
+    if ([[[myData objectAtIndex:indexPath.row] valueForKey:@"CategoryName"] isEqual:[NSNull null]]) {
+        
+    }
+    else{
+        NSString *stringForCell;
+        
+        stringForCell= [[myData objectAtIndex:indexPath.row] valueForKey:@"CategoryName"];
+        
+        
+        DLog(@"stringForCell: %@",stringForCell);
+        
+        [cell.textLabel setText:stringForCell];
+    }
     
     
-    NSString *stringForCell;
+    if ([[[myData objectAtIndex:indexPath.row] valueForKey:@"CatImage"] isEqual:[NSNull null]]){
+        
+    }
+    else{
+        
     
-    stringForCell= [[myData objectAtIndex:indexPath.row] valueForKey:@"CategoryName"];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        
+        [imageView setFrame:CGRectMake(10.0, 10.0, 50.0, 50.0)];
+        
+        
+        [cell.imageView  sd_setImageWithURL:[NSURL URLWithString:[ImageBaseURL stringByAppendingString:[[myData objectAtIndex:indexPath.row] valueForKey:@"CatImage"]]] placeholderImage:[UIImage imageNamed:[[myData objectAtIndex:indexPath.row] valueForKey:@"CatImage"]]];
+        
+        [cell setBackgroundView:imageView];
+        
+        
+        //    bgView.image = [UIImage imageNamed:[[myData objectAtIndex:indexPath.row] valueForKey:@"Imge"]];
+        //
+        //    [bgView  sd_setImageWithURL:[NSURL URLWithString:[ImageBaseURL stringByAppendingString:[[myData objectAtIndex:indexPath.row] valueForKey:@"Imge"]]] placeholderImage:[UIImage imageNamed:[[myData objectAtIndex:indexPath.row] valueForKey:@"Imge"]]];
+    }
+
     
     
-    [cell.textLabel setText:stringForCell];
+  
+    
+    
     return cell;
 }
 
@@ -207,6 +241,13 @@
 }
 
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    return 80.0;
+    
+    
+}
 
 
 
@@ -222,7 +263,9 @@
     // demo push code
     
     
-    product *controller = [[product alloc]init];
+    myproduct *controller = [[myproduct alloc]init];
+//    controller.ProductId = [[myData objectAtIndex:indexPath.row] valueForKey:@"id"];
+//    DLog(@"controller.ProductId %@",controller.ProductId);
     [self.navigationController pushViewController:controller animated:YES];
     
     
@@ -233,6 +276,8 @@
     
 
 }
+
+
 
 
 

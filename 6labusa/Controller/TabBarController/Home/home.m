@@ -3,6 +3,9 @@
 #import "home.h"
 #import "ConstantIdentifier.h"
 
+#import "productlist.h"
+#import "productview.h"
+
 #import "productdetail.h"
 #import "nearmosque.h"
 #import "blog.h"
@@ -312,6 +315,7 @@
     
     
     id controller ;
+//    UIAlertView *alert;
     
     switch (indexPath.row) {
         case 0:
@@ -320,9 +324,25 @@
             [self.navigationController pushViewController:controller animated:YES];
             
             break;
+            
+            
+            
+          case 1:
+            
+//            alert = [[UIAlertView alloc]initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"1" otherButtonTitles:@"2", nil];
+//            
+//            [alert show];
+            
+            controller =[[productlist alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            
+            
+            
+            break;
         case 2:
             
-            controller =[[nearmosque alloc]init];
+            controller =[[productview alloc]init];
             [self.navigationController pushViewController:controller animated:YES];
             
             break;
